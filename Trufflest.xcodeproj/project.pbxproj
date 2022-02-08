@@ -15,6 +15,7 @@
 		CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */; };
 		CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB6CA527B2C41400C5EFE5 /* Cornelius.swift */; };
 		CECB6CA827B2C47F00C5EFE5 /* Sprites.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECB6CA727B2C47F00C5EFE5 /* Sprites.xcassets */; };
+		CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */; };
 		CEDC58FF27B29EEB00025163 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC58FE27B29EEB00025163 /* Window.swift */; };
 		CEDC590227B2A0D200025163 /* Level1_Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEDC590127B2A0D200025163 /* Level1_Scene.sks */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CECB6CA527B2C41400C5EFE5 /* Cornelius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornelius.swift; sourceTree = "<group>"; };
 		CECB6CA727B2C47F00C5EFE5 /* Sprites.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sprites.xcassets; sourceTree = "<group>"; };
+		CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		CEDC58FD27B29C6E00025163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CEDC58FE27B29EEB00025163 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Window.swift; path = ../../trufflest/iOS/Window.swift; sourceTree = "<group>"; };
 		CEDC590127B2A0D200025163 /* Level1_Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1_Scene.sks; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				CECB6CA527B2C41400C5EFE5 /* Cornelius.swift */,
+				CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */,
 				CECB6CA727B2C47F00C5EFE5 /* Sprites.xcassets */,
 			);
 			path = Sprites;
@@ -179,6 +182,7 @@
 				CE7696B127B2C046000BB220 /* Level1.swift in Sources */,
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
+				CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */,
 				CEC63CC927B29AA6002CDA09 /* App.swift in Sources */,
 				CEDC58FF27B29EEB00025163 /* Window.swift in Sources */,
 			);

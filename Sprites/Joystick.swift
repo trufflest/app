@@ -1,8 +1,9 @@
 import SpriteKit
 
-final class Cornelius: SKSpriteNode {
-    private let walking1 = SKTexture(imageNamed: "Cornelius_walk_1")
-    private let walking2 = SKTexture(imageNamed: "Cornelius_walk_2")
+final class Joystick: SKSpriteNode {
+    private let none = SKTexture(imageNamed: "Joystick_none")
+    private let left = SKTexture(imageNamed: "Joystick_none")
+    private let right = SKTexture(imageNamed: "Joystick_right")
     
     required init?(coder: NSCoder) { nil }
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
@@ -10,7 +11,7 @@ final class Cornelius: SKSpriteNode {
     }
     
     init() {
-        super.init(texture: walking1)
+        super.init(texture: none)
         anchorPoint = .init(x: 0.5, y: 0)
     }
 }
