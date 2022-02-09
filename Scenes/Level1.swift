@@ -10,8 +10,11 @@ final class Level1: SKScene {
         addChild(joystick)
         
         cornelius.position = .init(x: 100, y: 40)
-        
         joystick.position = .init(x: 150, y: 195)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        cornelius.update(joystick: joystick.state, current: currentTime)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?) {

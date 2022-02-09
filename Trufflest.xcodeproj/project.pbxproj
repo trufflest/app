@@ -11,6 +11,8 @@
 		CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AD27B2A73E000BB220 /* Tiles.xcassets */; };
 		CE7696B127B2C046000BB220 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Level1.swift */; };
 		CE9BF80727B3E124005915CE /* Joystick.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80627B3E124005915CE /* Joystick.State.swift */; };
+		CE9BF80927B3F7E1005915CE /* Cornelius.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */; };
+		CE9BF80B27B3F82C005915CE /* Cornelius.Facing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */; };
 		CEC63CC927B29AA6002CDA09 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CC827B29AA6002CDA09 /* App.swift */; };
 		CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CCA27B29AA6002CDA09 /* Game.swift */; };
 		CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		CE7696AD27B2A73E000BB220 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tiles.xcassets; sourceTree = "<group>"; };
 		CE7696B027B2C046000BB220 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		CE9BF80627B3E124005915CE /* Joystick.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.State.swift; sourceTree = "<group>"; };
+		CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornelius.State.swift; sourceTree = "<group>"; };
+		CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornelius.Facing.swift; sourceTree = "<group>"; };
 		CEC63CC527B29AA6002CDA09 /* Trufflest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trufflest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC63CC827B29AA6002CDA09 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CEC63CCA27B29AA6002CDA09 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		CECB6CA427B2C40600C5EFE5 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */,
+				CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */,
 				CECB6CA527B2C41400C5EFE5 /* Cornelius.swift */,
 				CE9BF80627B3E124005915CE /* Joystick.State.swift */,
 				CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */,
@@ -182,9 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9BF80B27B3F82C005915CE /* Cornelius.Facing.swift in Sources */,
 				CE7696B127B2C046000BB220 /* Level1.swift in Sources */,
 				CE9BF80727B3E124005915CE /* Joystick.State.swift in Sources */,
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
+				CE9BF80927B3F7E1005915CE /* Cornelius.State.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
 				CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */,
 				CEC63CC927B29AA6002CDA09 /* App.swift in Sources */,

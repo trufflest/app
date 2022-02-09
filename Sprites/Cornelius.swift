@@ -1,8 +1,14 @@
 import SpriteKit
 
+private let cooldown = 0.2
+
 final class Cornelius: SKSpriteNode {
-    private let walking1 = SKTexture(imageNamed: "Cornelius_walk_1")
-    private let walking2 = SKTexture(imageNamed: "Cornelius_walk_2")
+    private var facing = Facing.right
+    private var state = State.walk1
+    private var time = TimeInterval()
+    private let _none = SKTexture(imageNamed: "Cornelius_none")
+    private let _walk1 = SKTexture(imageNamed: "Cornelius_walk_1")
+    private let _walk2 = SKTexture(imageNamed: "Cornelius_walk_2")
     
     required init?(coder: NSCoder) { nil }
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
@@ -10,7 +16,51 @@ final class Cornelius: SKSpriteNode {
     }
     
     init() {
-        super.init(texture: walking1)
+        super.init(texture: _none)
         anchorPoint = .init(x: 0.5, y: 0)
+    }
+    
+    func update(joystick: Joystick.State, current: TimeInterval) {
+        switch joystick {
+        case .left:
+            if current - time > cooldown {
+                switch state {
+                case .walk1:
+                    state = .walk2
+                default:
+                    state = .walk1
+                }
+                
+                if facing == .right {
+                    xScale = -1
+                    facing = .left
+                }
+                
+                run(.moveBy(x: -32, y: 0, duration: cooldown))
+                time = current
+            }
+        case .right:
+            if current - time > cooldown {
+                switch state {
+                case .walk1:
+                    state = .walk2
+                default:
+                    state = .walk1
+                }
+                
+                if facing == .left {
+                    xScale = 1
+                    facing = .right
+                }
+                
+                run(.moveBy(x: 32, y: 0, duration: cooldown))
+                time = current
+            }
+        case .none:
+            if state != .none {
+                state = .none
+                run(.setTexture(_none))
+            }
+        }
     }
 }
