@@ -6,8 +6,5 @@ struct Game: View {
         SpriteView(scene: .init(fileNamed: "Level1_Scene")!)
             .frame(height: 390)
             .edgesIgnoringSafeArea(.all)
-            .onAppear {
-                print(UIScreen.main.bounds)
-            }
     }
 }
