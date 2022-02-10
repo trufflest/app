@@ -3,6 +3,7 @@ extension Cornelius {
         case
         none,
         walk1,
-        walk2
+        walk2,
+        jump
     }
 }
