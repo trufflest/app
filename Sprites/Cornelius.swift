@@ -21,45 +21,42 @@ final class Cornelius: SKSpriteNode {
     }
     
     func update(joystick: Joystick.State, current: TimeInterval) {
+        guard current - time > cooldown else { return }
         switch joystick {
         case .left:
-            if current - time > cooldown {
-                switch state {
-                case .walk1:
-                    state = .walk2
-                    run(.setTexture(_walk2))
-                default:
-                    state = .walk1
-                    run(.setTexture(_walk1))
-                }
-                
-                if facing == .right {
-                    xScale = -1
-                    facing = .left
-                }
-                
-                run(.moveBy(x: -32, y: 0, duration: cooldown))
-                time = current
+            switch state {
+            case .walk1:
+                state = .walk2
+                run(.setTexture(_walk2))
+            default:
+                state = .walk1
+                run(.setTexture(_walk1))
             }
+            
+            if facing == .right {
+                xScale = -1
+                facing = .left
+            }
+            
+            run(.moveBy(x: -32, y: 0, duration: cooldown))
+            time = current
         case .right:
-            if current - time > cooldown {
-                switch state {
-                case .walk1:
-                    state = .walk2
-                    run(.setTexture(_walk2))
-                default:
-                    state = .walk1
-                    run(.setTexture(_walk1))
-                }
-                
-                if facing == .left {
-                    xScale = 1
-                    facing = .right
-                }
-                
-                run(.moveBy(x: 32, y: 0, duration: cooldown))
-                time = current
+            switch state {
+            case .walk1:
+                state = .walk2
+                run(.setTexture(_walk2))
+            default:
+                state = .walk1
+                run(.setTexture(_walk1))
             }
+            
+            if facing == .left {
+                xScale = 1
+                facing = .right
+            }
+            
+            run(.moveBy(x: 32, y: 0, duration: cooldown))
+            time = current
         case .none:
             if state != .none {
                 state = .none
