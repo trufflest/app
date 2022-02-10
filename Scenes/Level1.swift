@@ -16,7 +16,6 @@ final class Level1: SKScene {
     }
     
     override func didMove(to: SKView) {
-        print(jump.size.width)
         jump.position = .init(x: to.bounds.width - 70 - 60, y: 195)
     }
     

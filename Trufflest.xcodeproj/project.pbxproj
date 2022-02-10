@@ -100,14 +100,14 @@
 		CECB6CA427B2C40600C5EFE5 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */,
+				CE7A3D9927B548B2000F62AA /* Control.swift */,
 				CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */,
+				CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */,
 				CECB6CA527B2C41400C5EFE5 /* Cornelius.swift */,
 				CE9BF80627B3E124005915CE /* Joystick.State.swift */,
 				CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */,
 				CE7A3D9727B54873000F62AA /* Jump.swift */,
 				CECB6CA727B2C47F00C5EFE5 /* Sprites.xcassets */,
-				CE7A3D9927B548B2000F62AA /* Control.swift */,
 			);
 			path = Sprites;
 			sourceTree = "<group>";
