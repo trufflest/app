@@ -12,6 +12,7 @@
 		CE7696B127B2C046000BB220 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Level1.swift */; };
 		CE7A3D9827B54873000F62AA /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9727B54873000F62AA /* Jump.swift */; };
 		CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9927B548B2000F62AA /* Control.swift */; };
+		CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9B27B555DD000F62AA /* Scene.swift */; };
 		CE9BF80727B3E124005915CE /* Joystick.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80627B3E124005915CE /* Joystick.State.swift */; };
 		CE9BF80927B3F7E1005915CE /* Cornelius.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */; };
 		CE9BF80B27B3F82C005915CE /* Cornelius.Facing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */; };
@@ -31,6 +32,7 @@
 		CE7696B027B2C046000BB220 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		CE7A3D9727B54873000F62AA /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		CE7A3D9927B548B2000F62AA /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
+		CE7A3D9B27B555DD000F62AA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		CE9BF80627B3E124005915CE /* Joystick.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.State.swift; sourceTree = "<group>"; };
 		CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornelius.State.swift; sourceTree = "<group>"; };
 		CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornelius.Facing.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				CEDC590127B2A0D200025163 /* Level1_Scene.sks */,
 				CE7696B027B2C046000BB220 /* Level1.swift */,
+				CE7A3D9B27B555DD000F62AA /* Scene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				CE9BF80927B3F7E1005915CE /* Cornelius.State.swift in Sources */,
 				CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
+				CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */,
 				CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */,
 				CEC63CC927B29AA6002CDA09 /* App.swift in Sources */,
 				CEDC58FF27B29EEB00025163 /* Window.swift in Sources */,
