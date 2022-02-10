@@ -27,8 +27,10 @@ final class Cornelius: SKSpriteNode {
                 switch state {
                 case .walk1:
                     state = .walk2
+                    run(.setTexture(_walk2))
                 default:
                     state = .walk1
+                    run(.setTexture(_walk1))
                 }
                 
                 if facing == .right {
@@ -44,8 +46,10 @@ final class Cornelius: SKSpriteNode {
                 switch state {
                 case .walk1:
                     state = .walk2
+                    run(.setTexture(_walk2))
                 default:
                     state = .walk1
+                    run(.setTexture(_walk1))
                 }
                 
                 if facing == .left {
