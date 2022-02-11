@@ -17,7 +17,7 @@ class Scene: SKScene {
         addChild(joystick)
         addChild(jump)
     
-        cornelius.position = .init(x: 100, y: 40)
+        cornelius.position = .init(x: 100, y: 0)
         joystick.position = .init(x: 70 + 95, y: 195)
     }
     
@@ -55,14 +55,10 @@ class Scene: SKScene {
     private func update(x: Int, y: Int) {
         if ground.tileDefinition(atColumn: x, row: y) == nil {
             if jump.state == 0 || jump.state == 4 {
-                var delta = -tile
-                if ground.tileDefinition(atColumn: x, row: y - 1) == nil {
-                    delta -= tile
-                }
+                print("state \(jump.state), y: \(y), pos: \(cornelius.position.y)")
+                cornelius.run(.moveBy(x: 0, y: -tile, duration: cooldown))
                 
-                cornelius.run(.moveBy(x: 0, y: delta, duration: cooldown))
-                
-                if cornelius.position.y - delta < 20 {
+                if cornelius.position.y - tile < 20 {
                     self.isPaused = true
                 }
             }
