@@ -1,7 +1,7 @@
 import SpriteKit
 
 private let tile = 32.0
-private let cooldown = 0.2
+private let cooldown = 0.05
 
 class Scene: SKScene {
     private var time = TimeInterval()
@@ -74,7 +74,6 @@ class Scene: SKScene {
         var jumped = false
         let grounded = ground.tileDefinition(atColumn: x, row: y) != nil
         if grounded && jump.state {
-            
             var delta = 0.0
             for x in (2 ... 5) {
                 guard ground.tileDefinition(atColumn: x, row: y + x) == nil else {
@@ -85,6 +84,7 @@ class Scene: SKScene {
             cornelius.run(.moveBy(x: 0, y: delta, duration: cooldown))
             cornelius.state = .jump
             jumped = true
+            jump.consume()
         }
         
         switch joystick.state {
@@ -105,6 +105,7 @@ class Scene: SKScene {
             if x > 1 && ground.tileDefinition(atColumn: x - 1, row: y + 1) == nil {
                 cornelius.run(.moveBy(x: -tile, y: 0, duration: cooldown))
             }
+            joystick.consume()
         case .right:
             switch cornelius.state {
             case .walk1:
@@ -120,6 +121,7 @@ class Scene: SKScene {
             }
             
             cornelius.run(.moveBy(x: tile, y: 0, duration: cooldown))
+            joystick.consume()
         case .none:
             if cornelius.state != .none && grounded && !jumped {
                 cornelius.state = .none

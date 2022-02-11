@@ -2,8 +2,8 @@ import SpriteKit
 
 final class Joystick: SKSpriteNode, Control {
     weak var touching: UITouch?
-    let radius = CGFloat(80)
     private(set) var state = State.none
+    let radius = CGFloat(80)
     private let _none = SKTexture(imageNamed: "Joystick_none")
     private let _left = SKTexture(imageNamed: "Joystick_left")
     private let _right = SKTexture(imageNamed: "Joystick_right")
@@ -11,6 +11,11 @@ final class Joystick: SKSpriteNode, Control {
     required init?(coder: NSCoder) { nil }
     init() {
         super.init(texture: _none, color: .clear, size: _none.size())
+    }
+    
+    func consume() {
+        guard state != .none && touching == nil else { return }
+        state = .none
     }
     
     func begin(touch: UITouch) {
@@ -38,7 +43,6 @@ final class Joystick: SKSpriteNode, Control {
     }
     
     func untouch() {
-        state = .none
         run(.setTexture(_none))
     }
 }
