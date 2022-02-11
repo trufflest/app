@@ -1,28 +1,18 @@
 import SpriteKit
 
-class Control: SKSpriteNode {
-    private weak var touching: UITouch?
-    private let radius: CGFloat
+protocol Control: SKSpriteNode {
+    var touching: UITouch? { get set }
+    var radius: CGFloat { get }
     
-    required init?(coder: NSCoder) { nil }
-    init(texture: SKTexture, radius: CGFloat) {
-        self.radius = radius
-        super.init(texture: texture, color: .clear, size: texture.size())
-    }
+    func begin(touch: UITouch)
+    func move(touch: UITouch)
+    func untouch()
+}
+
+extension Control {
+    func move(touch: UITouch) { }
     
-    func begin(touch: UITouch) {
-        
-    }
-    
-    func move(touch: UITouch) {
-        
-    }
-    
-    func untouch() {
-        
-    }
-    
-    final func begin(touches: Set<UITouch>) {
+    func begin(touches: Set<UITouch>) {
         guard touching == nil else { return }
         touches
             .first(where: validate(touch:))
@@ -32,7 +22,7 @@ class Control: SKSpriteNode {
             }
     }
     
-    final func move(touches: Set<UITouch>) {
+    func move(touches: Set<UITouch>) {
         if let touching = touching, touches.contains(touching) {
             if validate(touch: touching) {
                 move(touch: touching)
@@ -45,7 +35,7 @@ class Control: SKSpriteNode {
         }
     }
     
-    final func end(touches: Set<UITouch>) {
+    func end(touches: Set<UITouch>) {
         guard
             let touching = touching,
             touches.contains(touching)
