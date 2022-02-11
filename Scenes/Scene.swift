@@ -1,7 +1,7 @@
 import SpriteKit
 
 private let tile = 32.0
-private let cooldown = 0.05
+private let cooldown = 0.1
 
 class Scene: SKScene {
     private var time = TimeInterval()
@@ -54,37 +54,42 @@ class Scene: SKScene {
     
     private func update(x: Int, y: Int) {
         if ground.tileDefinition(atColumn: x, row: y) == nil {
-            var delta = -tile
-            for index in (0 ... 2) {
-                guard y - index >= 0, ground.tileDefinition(atColumn: x, row: y - index) == nil else {
-                    break
+            if jump.state == 0 || jump.state == 4 {
+                var delta = -tile
+                if ground.tileDefinition(atColumn: x, row: y - 1) == nil {
+                    delta -= tile
                 }
-                delta -= tile
+                
+                cornelius.run(.moveBy(x: 0, y: delta, duration: cooldown))
+                
+                if cornelius.position.y - delta < 20 {
+                    self.isPaused = true
+                }
             }
-            
-            cornelius.run(.moveBy(x: 0, y: delta, duration: cooldown))
-            
-            if cornelius.position.y - delta < 20 {
-                self.isPaused = true
-            }
+        } else if jump.state == 0 && joystick.state == .none && cornelius.state != .none {
+            cornelius.state = .none
         }
     }
     
     private func updateActions(x: Int, y: Int) {
-        var jumped = false
-        let grounded = ground.tileDefinition(atColumn: x, row: y) != nil
-        if grounded && jump.state {
-            var delta = 0.0
-            for x in (2 ... 5) {
-                guard ground.tileDefinition(atColumn: x, row: y + x) == nil else {
-                    break
-                }
-                delta += tile
+        switch jump.state {
+        case 4:
+            if ground.tileDefinition(atColumn: x, row: y) != nil {
+                cornelius.state = .jump
+                cornelius.run(.moveBy(x: 0, y: tile, duration: cooldown))
+                jump.consume()
+            } else {
+                jump.clear()
             }
-            cornelius.run(.moveBy(x: 0, y: delta, duration: cooldown))
-            cornelius.state = .jump
-            jumped = true
-            jump.consume()
+        case 0:
+            jump.clear()
+        default:
+            if ground.tileDefinition(atColumn: x, row: y + 1) == nil {
+                cornelius.run(.moveBy(x: 0, y: tile, duration: cooldown))
+                jump.consume()
+            } else {
+                jump.clear()
+            }
         }
         
         switch joystick.state {
@@ -105,7 +110,6 @@ class Scene: SKScene {
             if x > 1 && ground.tileDefinition(atColumn: x - 1, row: y + 1) == nil {
                 cornelius.run(.moveBy(x: -tile, y: 0, duration: cooldown))
             }
-            joystick.consume()
         case .right:
             switch cornelius.state {
             case .walk1:
@@ -121,11 +125,10 @@ class Scene: SKScene {
             }
             
             cornelius.run(.moveBy(x: tile, y: 0, duration: cooldown))
-            joystick.consume()
         case .none:
-            if cornelius.state != .none && grounded && !jumped {
-                cornelius.state = .none
-            }
+            break
         }
+        
+        joystick.consume()
     }
 }
