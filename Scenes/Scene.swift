@@ -1,23 +1,24 @@
 import SpriteKit
+import Combine
+import Master
 
-private let tile = 32.0
 private let cooldown = 0.1
 
 class Scene: SKScene {
     private var time = TimeInterval()
-    private var ground: SKTileMapNode!
     private let cornelius = Cornelius()
     private let joystick = Joystick()
     private let jump = Jump()
-
+    private let map = Map()
+    
     final override func sceneDidLoad() {
-        ground = childNode(withName: "Ground") as? SKTileMapNode
+        map.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         
         addChild(cornelius)
         addChild(joystick)
         addChild(jump)
     
-        cornelius.position = .init(x: 100, y: 0)
+        cornelius.position = map[.cornelius]
         joystick.position = .init(x: 70 + 95, y: 195)
     }
     
@@ -29,12 +30,7 @@ class Scene: SKScene {
     final override func update(_ currentTime: TimeInterval) {
         guard currentTime - time > cooldown else { return }
         time = currentTime
-        
-        let x = Int(cornelius.position.x / tile)
-        let y = Int(cornelius.position.y / tile)
-        
-        update(x: x, y: y)
-        updateActions(x: x, y: y)
+        map.update(jumping: jump.state, walking: joystick.state, face: cornelius.state, direction: cornelius.facing)
     }
     
     final override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?) {
@@ -51,11 +47,10 @@ class Scene: SKScene {
         joystick.end(touches: touches)
         jump.end(touches: touches)
     }
-    
+    /*
     private func update(x: Int, y: Int) {
         if ground.tileDefinition(atColumn: x, row: y) == nil {
             if jump.state == 0 || jump.state == 4 {
-                print("state \(jump.state), y: \(y), pos: \(cornelius.position.y)")
                 cornelius.run(.moveBy(x: 0, y: -tile, duration: cooldown))
                 
                 if cornelius.position.y - tile < 20 {
@@ -127,4 +122,5 @@ class Scene: SKScene {
         
         joystick.consume()
     }
+     */
 }

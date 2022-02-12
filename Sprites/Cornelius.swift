@@ -1,7 +1,8 @@
 import SpriteKit
+import Master
 
 final class Cornelius: SKSpriteNode {
-    var facing = Facing.right {
+    var facing = Direction.right {
         didSet {
             switch facing {
             case .left:
@@ -12,7 +13,7 @@ final class Cornelius: SKSpriteNode {
         }
     }
     
-    var state = State.walk1 {
+    var state = Face.walk1 {
         didSet {
             switch state {
             case .walk1:

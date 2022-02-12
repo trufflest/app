@@ -1,8 +1,9 @@
 import SpriteKit
+import Master
 
 final class Jump: SKSpriteNode, Control {
     weak var touching: UITouch?
-    private(set) var state = 0
+    private(set) var state = Jumping.none
     let radius = CGFloat(50)
     private let _off = SKTexture(imageNamed: "Jump_off")
     private let _on = SKTexture(imageNamed: "Jump_on")
@@ -12,17 +13,13 @@ final class Jump: SKSpriteNode, Control {
         super.init(texture: _off, color: .clear, size: _off.size())
     }
     
-    func clear() {
-        state = touching == nil ? 0 : 4
-    }
-    
-    func consume() {
-        state = touching == nil ? 0 : max(0, state - 1)
+    func consume(jumping: Jumping) {
+        state = touching == nil ? .none : jumping
     }
     
     func begin(touch: UITouch) {
-        guard state == 0 else { return }
-        state = 4
+        guard state == .none else { return }
+        state = .start
         run(.setTexture(_on))
     }
     

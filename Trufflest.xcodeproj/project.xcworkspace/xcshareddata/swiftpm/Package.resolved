@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Master",
+        "repositoryURL": "https://github.com/trufflest/master.git",
+        "state": {
+          "branch": "main",
+          "revision": "fc0952921cfc276fc01fa868c5d50018b16782c2",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

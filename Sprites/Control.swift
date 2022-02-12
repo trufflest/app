@@ -4,7 +4,6 @@ protocol Control: SKSpriteNode {
     var touching: UITouch? { get set }
     var radius: CGFloat { get }
     
-    func consume()
     func begin(touch: UITouch)
     func move(touch: UITouch)
     func untouch()

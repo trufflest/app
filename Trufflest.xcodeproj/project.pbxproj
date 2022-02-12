@@ -7,15 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE6E84E927B7D2B70010A13B /* Master in Frameworks */ = {isa = PBXBuildFile; productRef = CE6E84E827B7D2B70010A13B /* Master */; };
 		CE7696AE27B2A73E000BB220 /* Level1_Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AC27B2A73E000BB220 /* Level1_Tiles.sks */; };
 		CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AD27B2A73E000BB220 /* Tiles.xcassets */; };
 		CE7696B127B2C046000BB220 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Level1.swift */; };
 		CE7A3D9827B54873000F62AA /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9727B54873000F62AA /* Jump.swift */; };
 		CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9927B548B2000F62AA /* Control.swift */; };
 		CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9B27B555DD000F62AA /* Scene.swift */; };
-		CE9BF80727B3E124005915CE /* Joystick.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80627B3E124005915CE /* Joystick.State.swift */; };
-		CE9BF80927B3F7E1005915CE /* Cornelius.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */; };
-		CE9BF80B27B3F82C005915CE /* Cornelius.Facing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */; };
 		CEC63CC927B29AA6002CDA09 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CC827B29AA6002CDA09 /* App.swift */; };
 		CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CCA27B29AA6002CDA09 /* Game.swift */; };
 		CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */; };
@@ -33,9 +31,6 @@
 		CE7A3D9727B54873000F62AA /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		CE7A3D9927B548B2000F62AA /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		CE7A3D9B27B555DD000F62AA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		CE9BF80627B3E124005915CE /* Joystick.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.State.swift; sourceTree = "<group>"; };
-		CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornelius.State.swift; sourceTree = "<group>"; };
-		CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cornelius.Facing.swift; sourceTree = "<group>"; };
 		CEC63CC527B29AA6002CDA09 /* Trufflest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trufflest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC63CC827B29AA6002CDA09 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CEC63CCA27B29AA6002CDA09 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -53,12 +48,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6E84E927B7D2B70010A13B /* Master in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE339F4427B6BA16003F9F0E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		CE7696AB27B2A713000BB220 /* Tiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +77,7 @@
 				CEC63CC727B29AA6002CDA09 /* iOS */,
 				CEC63CC627B29AA6002CDA09 /* Products */,
 				CEDC590027B2A07500025163 /* Scenes */,
+				CE339F4427B6BA16003F9F0E /* Shared */,
 				CECB6CA427B2C40600C5EFE5 /* Sprites */,
 				CE7696AB27B2A713000BB220 /* Tiles */,
 			);
@@ -103,10 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				CE7A3D9927B548B2000F62AA /* Control.swift */,
-				CE9BF80A27B3F82C005915CE /* Cornelius.Facing.swift */,
-				CE9BF80827B3F7E1005915CE /* Cornelius.State.swift */,
 				CECB6CA527B2C41400C5EFE5 /* Cornelius.swift */,
-				CE9BF80627B3E124005915CE /* Joystick.State.swift */,
 				CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */,
 				CE7A3D9727B54873000F62AA /* Jump.swift */,
 				CECB6CA727B2C47F00C5EFE5 /* Sprites.xcassets */,
@@ -140,6 +141,9 @@
 			dependencies = (
 			);
 			name = iOS;
+			packageProductDependencies = (
+				CE6E84E827B7D2B70010A13B /* Master */,
+			);
 			productName = iOS;
 			productReference = CEC63CC527B29AA6002CDA09 /* Trufflest.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +172,9 @@
 				Base,
 			);
 			mainGroup = CEC63CBA27B29A97002CDA09;
+			packageReferences = (
+				CE6E84E727B7D2B70010A13B /* XCRemoteSwiftPackageReference "master" */,
+			);
 			productRefGroup = CEC63CC627B29AA6002CDA09 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -197,12 +204,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9BF80B27B3F82C005915CE /* Cornelius.Facing.swift in Sources */,
 				CE7696B127B2C046000BB220 /* Level1.swift in Sources */,
-				CE9BF80727B3E124005915CE /* Joystick.State.swift in Sources */,
 				CE7A3D9827B54873000F62AA /* Jump.swift in Sources */,
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
-				CE9BF80927B3F7E1005915CE /* Cornelius.State.swift in Sources */,
 				CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
 				CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */,
@@ -425,6 +429,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE6E84E727B7D2B70010A13B /* XCRemoteSwiftPackageReference "master" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/trufflest/master.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE6E84E827B7D2B70010A13B /* Master */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6E84E727B7D2B70010A13B /* XCRemoteSwiftPackageReference "master" */;
+			productName = Master;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CEC63CBB27B29A97002CDA09 /* Project object */;
 }
