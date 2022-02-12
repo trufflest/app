@@ -17,16 +17,28 @@ class Scene: SKScene {
         map.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         
         addChild(cornelius)
-        addChild(joystick)
-        addChild(jump)
         
         cornelius.position = map[.cornelius]
-        joystick.position = .init(x: 70 + 95, y: 195)
-
+        
+        let camera = SKCameraNode()
+        camera.position.y = 224
+        addChild(camera)
+        self.camera = camera
+        
+        camera.addChild(joystick)
+        camera.addChild(jump)
+        
         map
-            .move
+            .moveX
             .sink { [weak self] in
-                self?.cornelius.run(.move(to: $0, duration: cooldown))
+                self?.cornelius.run(.moveTo(x: $0, duration: cooldown))
+            }
+            .store(in: &subs)
+        
+        map
+            .moveY
+            .sink { [weak self] in
+                self?.cornelius.run(.moveTo(y: $0, duration: cooldown))
             }
             .store(in: &subs)
         
@@ -60,7 +72,16 @@ class Scene: SKScene {
     }
     
     final override func didMove(to: SKView) {
-        jump.position = .init(x: to.bounds.width - 70 - 60, y: 195)
+        let mid = (to.bounds.width / 2)
+        
+        jump.position = .init(x: mid - 25 - 60, y: 120)
+        joystick.position = .init(x: -mid + 25 + 95, y: 120)
+        
+        camera!.position = .init(x: to.center.x, y: camera!.position.y)
+        camera!.constraints = [.distance(.init(upperLimit: 150), to: cornelius),
+                               .positionX(.init(lowerLimit: mid, upperLimit: childNode(withName: "Ground")!.frame.width - mid)),
+                               .positionY(.init(constantValue: camera!.position.y))]
+        
         to.isMultipleTouchEnabled = true
     }
     

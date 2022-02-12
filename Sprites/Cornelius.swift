@@ -7,8 +7,10 @@ final class Cornelius: SKSpriteNode {
             switch direction {
             case .left:
                 xScale = -1
+                anchorPoint = .init(x: 1, y: 0)
             case .right:
                 xScale = 1
+                anchorPoint = .zero
             }
         }
     }

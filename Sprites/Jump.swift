@@ -19,7 +19,7 @@ final class Jump: SKSpriteNode, Control {
     }
     
     func consume(jumping: Jumping) {
-        state = touching == nil ? .none : jumping
+        state = jumping
     }
     
     func begin(touch: UITouch) {
