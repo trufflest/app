@@ -40,5 +40,6 @@ final class Cornelius: SKSpriteNode {
     
     init() {
         super.init(texture: _none)
+        anchorPoint = .zero
     }
 }

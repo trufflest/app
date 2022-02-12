@@ -5,6 +5,7 @@ import Master
 private let cooldown = 0.1
 
 class Scene: SKScene {
+    private var state = State.playing
     private var time = TimeInterval()
     private var subs = Set<AnyCancellable>()
     private let cornelius = Cornelius()
@@ -18,19 +19,10 @@ class Scene: SKScene {
         addChild(cornelius)
         addChild(joystick)
         addChild(jump)
-    
+        
         cornelius.position = map[.cornelius]
         joystick.position = .init(x: 70 + 95, y: 195)
-        
-        
-        /*
-         public let move = PassthroughSubject<CGPoint, Never>()
-         public let face = PassthroughSubject<Face, Never>()
-         public let over = PassthroughSubject<Over, Never>()
-         public let direction = PassthroughSubject<Direction, Never>()
-         public let jumping = PassthroughSubject<Jumping, Never>()
-         */
-        
+
         map
             .move
             .sink { [weak self] in
@@ -58,6 +50,13 @@ class Scene: SKScene {
                 self?.jump.consume(jumping: $0)
             }
             .store(in: &subs)
+        
+        map
+            .state
+            .sink { [weak self] in
+                self?.state = $0
+            }
+            .store(in: &subs)
     }
     
     final override func didMove(to: SKView) {
@@ -66,7 +65,11 @@ class Scene: SKScene {
     }
     
     final override func update(_ currentTime: TimeInterval) {
-        guard currentTime - time > cooldown else { return }
+        guard
+            state == .playing,
+            currentTime - time > cooldown
+        else { return }
+        
         time = currentTime
         
         map.update(jumping: jump.state,
@@ -75,6 +78,7 @@ class Scene: SKScene {
                    direction: cornelius.direction)
         
         joystick.consume()
+        jump.consume()
     }
     
     final override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?) {

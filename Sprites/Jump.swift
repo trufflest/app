@@ -13,6 +13,11 @@ final class Jump: SKSpriteNode, Control {
         super.init(texture: _off, color: .clear, size: _off.size())
     }
     
+    func consume() {
+        guard state != .none && touching == nil else { return }
+        state = .none
+    }
+    
     func consume(jumping: Jumping) {
         state = touching == nil ? .none : jumping
     }
