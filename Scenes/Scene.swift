@@ -6,6 +6,7 @@ private let cooldown = 0.1
 
 class Scene: SKScene {
     private var time = TimeInterval()
+    private var subs = Set<AnyCancellable>()
     private let cornelius = Cornelius()
     private let joystick = Joystick()
     private let jump = Jump()
@@ -20,6 +21,43 @@ class Scene: SKScene {
     
         cornelius.position = map[.cornelius]
         joystick.position = .init(x: 70 + 95, y: 195)
+        
+        
+        /*
+         public let move = PassthroughSubject<CGPoint, Never>()
+         public let face = PassthroughSubject<Face, Never>()
+         public let over = PassthroughSubject<Over, Never>()
+         public let direction = PassthroughSubject<Direction, Never>()
+         public let jumping = PassthroughSubject<Jumping, Never>()
+         */
+        
+        map
+            .move
+            .sink { [weak self] in
+                self?.cornelius.run(.move(to: $0, duration: cooldown))
+            }
+            .store(in: &subs)
+        
+        map
+            .face
+            .sink { [weak self] in
+                self?.cornelius.face = $0
+            }
+            .store(in: &subs)
+        
+        map
+            .direction
+            .sink { [weak self] in
+                self?.cornelius.direction = $0
+            }
+            .store(in: &subs)
+        
+        map
+            .jumping
+            .sink { [weak self] in
+                self?.jump.consume(jumping: $0)
+            }
+            .store(in: &subs)
     }
     
     final override func didMove(to: SKView) {
@@ -30,7 +68,13 @@ class Scene: SKScene {
     final override func update(_ currentTime: TimeInterval) {
         guard currentTime - time > cooldown else { return }
         time = currentTime
-        map.update(jumping: jump.state, walking: joystick.state, face: cornelius.state, direction: cornelius.facing)
+        
+        map.update(jumping: jump.state,
+                   walking: joystick.state,
+                   face: cornelius.face,
+                   direction: cornelius.direction)
+        
+        joystick.consume()
     }
     
     final override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?) {
@@ -47,80 +91,4 @@ class Scene: SKScene {
         joystick.end(touches: touches)
         jump.end(touches: touches)
     }
-    /*
-    private func update(x: Int, y: Int) {
-        if ground.tileDefinition(atColumn: x, row: y) == nil {
-            if jump.state == 0 || jump.state == 4 {
-                cornelius.run(.moveBy(x: 0, y: -tile, duration: cooldown))
-                
-                if cornelius.position.y - tile < 20 {
-                    self.isPaused = true
-                }
-            }
-        } else if jump.state == 0 && joystick.state == .none && cornelius.state != .none {
-            cornelius.state = .none
-        }
-    }
-    
-    private func updateActions(x: Int, y: Int) {
-        switch jump.state {
-        case 4:
-            if ground.tileDefinition(atColumn: x, row: y) != nil {
-                cornelius.state = .jump
-                cornelius.run(.moveBy(x: 0, y: tile, duration: cooldown))
-                jump.consume()
-            } else {
-                jump.clear()
-            }
-        case 0:
-            jump.clear()
-        default:
-            if ground.tileDefinition(atColumn: x, row: y + 1) == nil {
-                cornelius.run(.moveBy(x: 0, y: tile, duration: cooldown))
-                jump.consume()
-            } else {
-                jump.clear()
-            }
-        }
-        
-        switch joystick.state {
-        case .left:
-            switch cornelius.state {
-            case .walk1:
-                cornelius.state = .walk2
-            case .walk2, .none:
-                cornelius.state = .walk1
-            default:
-                break
-            }
-            
-            if cornelius.facing == .right {
-                cornelius.facing = .left
-            }
-            
-            if x > 1 && ground.tileDefinition(atColumn: x - 1, row: y + 1) == nil {
-                cornelius.run(.moveBy(x: -tile, y: 0, duration: cooldown))
-            }
-        case .right:
-            switch cornelius.state {
-            case .walk1:
-                cornelius.state = .walk2
-            case .walk2, .none:
-                cornelius.state = .walk1
-            default:
-                break
-            }
-            
-            if cornelius.facing == .left {
-                cornelius.facing = .right
-            }
-            
-            cornelius.run(.moveBy(x: tile, y: 0, duration: cooldown))
-        case .none:
-            break
-        }
-        
-        joystick.consume()
-    }
-     */
 }

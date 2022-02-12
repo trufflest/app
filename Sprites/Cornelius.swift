@@ -2,9 +2,9 @@ import SpriteKit
 import Master
 
 final class Cornelius: SKSpriteNode {
-    var facing = Direction.right {
+    var direction = Direction.right {
         didSet {
-            switch facing {
+            switch direction {
             case .left:
                 xScale = -1
             case .right:
@@ -13,9 +13,9 @@ final class Cornelius: SKSpriteNode {
         }
     }
     
-    var state = Face.walk1 {
+    var face = Face.walk1 {
         didSet {
-            switch state {
+            switch face {
             case .walk1:
                 run(.setTexture(_walk1))
             case .walk2:
