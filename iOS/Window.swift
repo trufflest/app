@@ -1,9 +1,15 @@
 import SwiftUI
 
 struct Window: View {
+    @StateObject private var session = Session()
+    
     var body: some View {
-        Game()
-            .preferredColorScheme(.dark)
-            .edgesIgnoringSafeArea(.all)
+        switch session.state {
+        case .home:
+            Home(session: session)
+        case let .play(play):
+            Game(scene: play)
+                .edgesIgnoringSafeArea(.all)
+        }
     }
 }
