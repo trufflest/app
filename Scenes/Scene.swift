@@ -12,20 +12,43 @@ class Scene: SKScene {
     private let joystick = Joystick()
     private let jump = Jump()
     private let map = Map()
-    private let retry = Retry()
+    private let retry = Action(image: "Retry")
+    private let exit = Action(image: "Exit")
+    private let resume = Action(image: "Resume")
+    private let pause = Pause()
     
     private var state = State.playing {
         didSet {
             switch state {
-            case .fell:
+            case .dead:
                 camera!.addChild(retry)
-            default:
+                camera!.addChild(exit)
+                cornelius.run(.fadeOut(withDuration: 1))
+                retry.run(.fadeIn(withDuration: 1))
+                exit.run(.fadeIn(withDuration: 1))
+            case .pause:
+                camera!.addChild(resume)
+                camera!.addChild(exit)
+                resume.run(.fadeIn(withDuration: 1))
+                exit.run(.fadeIn(withDuration: 1))
+            case .playing:
+                resume.removeFromParent()
+                exit.removeFromParent()
+                resume.alpha = 0
+                exit.alpha = 0
                 break
             }
         }
     }
     
     final override func sceneDidLoad() {
+        retry.position.y = 50
+        exit.position.y = -50
+        resume.position.y = 50
+        retry.alpha = 0
+        exit.alpha = 0
+        resume.alpha = 0
+        
         map.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         addChild(cornelius)
         
@@ -38,6 +61,7 @@ class Scene: SKScene {
         
         camera.addChild(joystick)
         camera.addChild(jump)
+        camera.addChild(pause)
         
         map
             .moveX
@@ -87,17 +111,40 @@ class Scene: SKScene {
                 self?.session.retry()
             }
             .store(in: &subs)
+        
+        exit
+            .activated
+            .sink { [weak self] in
+                self?.session.exit()
+            }
+            .store(in: &subs)
+        
+        resume
+            .activated
+            .sink { [weak self] in
+                self?.state = .playing
+            }
+            .store(in: &subs)
+        
+        pause
+            .pause
+            .sink { [weak self] in
+                self?.state = .pause
+            }
+            .store(in: &subs)
     }
     
     final override func didMove(to: SKView) {
-        let mid = (to.bounds.width / 2)
+        let horizontal = to.bounds.width / 2
+        let vertical = (to.bounds.height / 2) - 90
         
-        jump.position = .init(x: mid - 25 - 60, y: 120)
-        joystick.position = .init(x: -mid + 25 + 95, y: 120)
+        jump.position = .init(x: horizontal - 25 - 60, y: vertical)
+        joystick.position = .init(x: -horizontal + 25 + 95, y: vertical)
+        pause.position = .init(x: 0, y: vertical)
         
         camera!.position = .init(x: to.center.x, y: camera!.position.y)
         camera!.constraints = [.distance(.init(upperLimit: 150), to: cornelius),
-                               .positionX(.init(lowerLimit: mid, upperLimit: childNode(withName: "Ground")!.frame.width - mid)),
+                               .positionX(.init(lowerLimit: horizontal, upperLimit: childNode(withName: "Ground")!.frame.width - horizontal)),
                                .positionY(.init(constantValue: camera!.position.y))]
         
         to.isMultipleTouchEnabled = true
@@ -125,8 +172,13 @@ class Scene: SKScene {
         case .playing:
             joystick.begin(touches: touches)
             jump.begin(touches: touches)
-        case .fell, .dead:
+            pause.begin(touches: touches)
+        case .dead:
             retry.begin(touches: touches)
+            exit.begin(touches: touches)
+        case .pause:
+            resume.begin(touches: touches)
+            exit.begin(touches: touches)
         }
     }
     
@@ -135,8 +187,13 @@ class Scene: SKScene {
         case .playing:
             joystick.move(touches: touches)
             jump.move(touches: touches)
-        case .fell, .dead:
+            pause.move(touches: touches)
+        case .dead:
             retry.move(touches: touches)
+            exit.move(touches: touches)
+        case .pause:
+            resume.move(touches: touches)
+            exit.move(touches: touches)
         }
     }
     
@@ -145,8 +202,13 @@ class Scene: SKScene {
         case .playing:
             joystick.end(touches: touches)
             jump.end(touches: touches)
-        case .fell, .dead:
+            pause.end(touches: touches)
+        case .dead:
             retry.end(touches: touches)
+            exit.end(touches: touches)
+        case .pause:
+            resume.end(touches: touches)
+            exit.end(touches: touches)
         }
     }
 }

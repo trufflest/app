@@ -17,4 +17,10 @@ final class Session: ObservableObject {
             }
         }
     }
+    
+    func exit() {
+        withAnimation(.easeInOut(duration: 0.75)) {
+            state = .home
+        }
+    }
 }

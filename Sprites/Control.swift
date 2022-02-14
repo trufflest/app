@@ -2,7 +2,8 @@ import SpriteKit
 
 protocol Control: SKSpriteNode {
     var touching: UITouch? { get set }
-    var radius: CGFloat { get }
+    var horizontal: CGFloat { get }
+    var vertical: CGFloat { get }
     
     func consume()
     func begin(touch: UITouch)
@@ -50,8 +51,8 @@ extension Control {
     private func validate(touch: UITouch) -> Bool {
         let location = touch.location(in: self)
         guard
-            abs(location.x) < radius,
-            abs(location.y) < 40
+            abs(location.x) < horizontal,
+            abs(location.y) < vertical
         else {
             return false
         }

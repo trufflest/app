@@ -17,7 +17,8 @@
 		CE7A3D9827B54873000F62AA /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9727B54873000F62AA /* Jump.swift */; };
 		CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9927B548B2000F62AA /* Control.swift */; };
 		CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9B27B555DD000F62AA /* Scene.swift */; };
-		CEA8EA0F27BA80AE00C2540D /* Retry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8EA0E27BA80AE00C2540D /* Retry.swift */; };
+		CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEFFA27BAC14A0057B39D /* Pause.swift */; };
+		CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8EA0E27BA80AE00C2540D /* Action.swift */; };
 		CEC63CC927B29AA6002CDA09 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CC827B29AA6002CDA09 /* App.swift */; };
 		CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CCA27B29AA6002CDA09 /* Game.swift */; };
 		CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */; };
@@ -38,7 +39,8 @@
 		CE7A3D9727B54873000F62AA /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		CE7A3D9927B548B2000F62AA /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		CE7A3D9B27B555DD000F62AA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		CEA8EA0E27BA80AE00C2540D /* Retry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Retry.swift; sourceTree = "<group>"; };
+		CE9DEFFA27BAC14A0057B39D /* Pause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pause.swift; sourceTree = "<group>"; };
+		CEA8EA0E27BA80AE00C2540D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		CEC63CC527B29AA6002CDA09 /* Trufflest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trufflest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC63CC827B29AA6002CDA09 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CEC63CCA27B29AA6002CDA09 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -117,11 +119,12 @@
 		CECB6CA427B2C40600C5EFE5 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				CEA8EA0E27BA80AE00C2540D /* Action.swift */,
 				CE7A3D9927B548B2000F62AA /* Control.swift */,
 				CECB6CA527B2C41400C5EFE5 /* Cornelius.swift */,
 				CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */,
 				CE7A3D9727B54873000F62AA /* Jump.swift */,
-				CEA8EA0E27BA80AE00C2540D /* Retry.swift */,
+				CE9DEFFA27BAC14A0057B39D /* Pause.swift */,
 				CECB6CA727B2C47F00C5EFE5 /* Sprites.xcassets */,
 			);
 			path = Sprites;
@@ -216,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA8EA0F27BA80AE00C2540D /* Retry.swift in Sources */,
+				CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */,
 				CE7696B127B2C046000BB220 /* Level1.swift in Sources */,
 				CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */,
 				CE7A3D9827B54873000F62AA /* Jump.swift in Sources */,
@@ -224,6 +227,7 @@
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
 				CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
+				CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */,
 				CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */,
 				CE55C33A27B92D8F000626FF /* Session.swift in Sources */,
 				CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */,
