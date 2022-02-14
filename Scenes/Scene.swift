@@ -27,10 +27,13 @@ class Scene: SKScene {
                 retry.run(.fadeIn(withDuration: 1))
                 exit.run(.fadeIn(withDuration: 1))
             case .pause:
+                joystick.clear()
+                jump.clear()
+                
                 camera!.addChild(resume)
                 camera!.addChild(exit)
-                resume.run(.fadeIn(withDuration: 1))
-                exit.run(.fadeIn(withDuration: 1))
+                resume.run(.fadeIn(withDuration: 0.3))
+                exit.run(.fadeIn(withDuration: 0.3))
             case .playing:
                 resume.removeFromParent()
                 exit.removeFromParent()
@@ -42,9 +45,9 @@ class Scene: SKScene {
     }
     
     final override func sceneDidLoad() {
-        retry.position.y = 50
-        exit.position.y = -50
-        resume.position.y = 50
+        retry.position.y = 35
+        exit.position.y = -35
+        resume.position.y = 35
         retry.alpha = 0
         exit.alpha = 0
         resume.alpha = 0
@@ -138,8 +141,8 @@ class Scene: SKScene {
         let horizontal = to.bounds.width / 2
         let vertical = (to.bounds.height / 2) - 90
         
-        jump.position = .init(x: horizontal - 25 - 60, y: vertical)
-        joystick.position = .init(x: -horizontal + 25 + 95, y: vertical)
+        jump.position = .init(x: horizontal - 25 - 45, y: vertical)
+        joystick.position = .init(x: -horizontal + 25 + 75, y: vertical)
         pause.position = .init(x: 0, y: vertical)
         
         camera!.position = .init(x: to.center.x, y: camera!.position.y)

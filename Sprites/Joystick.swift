@@ -4,8 +4,8 @@ import Master
 final class Joystick: SKSpriteNode, Control {
     weak var touching: UITouch?
     private(set) var state = Walking.none
-    let horizontal = CGFloat(50)
-    let vertical = CGFloat(25)
+    let horizontal = CGFloat(60)
+    let vertical = CGFloat(35)
     private let _none = SKTexture(imageNamed: "Joystick_none")
     private let _left = SKTexture(imageNamed: "Joystick_left")
     private let _right = SKTexture(imageNamed: "Joystick_right")

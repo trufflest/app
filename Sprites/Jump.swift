@@ -4,8 +4,8 @@ import Master
 final class Jump: SKSpriteNode, Control {
     weak var touching: UITouch?
     private(set) var state = Jumping.none
-    let horizontal = CGFloat(25)
-    let vertical = CGFloat(25)
+    let horizontal = CGFloat(35)
+    let vertical = CGFloat(35)
     private let _off = SKTexture(imageNamed: "Jump_off")
     private let _on = SKTexture(imageNamed: "Jump_on")
 

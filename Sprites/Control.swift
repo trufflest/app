@@ -5,6 +5,7 @@ protocol Control: SKSpriteNode {
     var horizontal: CGFloat { get }
     var vertical: CGFloat { get }
     
+    func clear()
     func consume()
     func begin(touch: UITouch)
     func move(touch: UITouch)
@@ -15,6 +16,11 @@ extension Control {
     func consume() { }
     func move(touch: UITouch) { }
     func untouch() { }
+    
+    func clear() {
+        touching = nil
+        untouch()
+    }
     
     func begin(touches: Set<UITouch>) {
         guard touching == nil else { return }
