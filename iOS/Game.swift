@@ -2,10 +2,14 @@ import SwiftUI
 import SpriteKit
 
 struct Game: View {
-    let scene: String
+    let session: Session
+    let scene: Scene
     
     var body: some View {
-        SpriteView(scene: .init(fileNamed: scene)!)
+        SpriteView(scene: scene)
             .frame(height: 448)
+            .onAppear {
+                scene.session = session
+            }
     }
 }

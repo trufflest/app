@@ -8,7 +8,7 @@ struct Home: View {
             Spacer()
             Text("Truffle Forest")
             Button("Play") {
-                session.state = .play("Level1_Scene")
+                session.play(name: "Level1_Scene")
             }
             .buttonStyle(.borderedProminent)
             Spacer()

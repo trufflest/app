@@ -1,7 +1,9 @@
+import Foundation
+
 extension Session {
     enum State {
         case
         home,
-        play(String)
+        play(UUID, String)
     }
 }

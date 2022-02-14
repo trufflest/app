@@ -5,17 +5,28 @@ import Master
 private let cooldown = 0.1
 
 class Scene: SKScene {
-    private var state = State.playing
+    weak var session: Session!
     private var time = TimeInterval()
     private var subs = Set<AnyCancellable>()
     private let cornelius = Cornelius()
     private let joystick = Joystick()
     private let jump = Jump()
     private let map = Map()
+    private let retry = Retry()
+    
+    private var state = State.playing {
+        didSet {
+            switch state {
+            case .fell:
+                camera!.addChild(retry)
+            default:
+                break
+            }
+        }
+    }
     
     final override func sceneDidLoad() {
         map.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
-        
         addChild(cornelius)
         
         cornelius.position = map[.cornelius]
@@ -69,6 +80,13 @@ class Scene: SKScene {
                 self?.state = $0
             }
             .store(in: &subs)
+        
+        retry
+            .activated
+            .sink { [weak self] in
+                self?.session.retry()
+            }
+            .store(in: &subs)
     }
     
     final override func didMove(to: SKView) {
@@ -103,17 +121,32 @@ class Scene: SKScene {
     }
     
     final override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?) {
-        joystick.begin(touches: touches)
-        jump.begin(touches: touches)
+        switch state {
+        case .playing:
+            joystick.begin(touches: touches)
+            jump.begin(touches: touches)
+        case .fell, .dead:
+            retry.begin(touches: touches)
+        }
     }
     
     final override func touchesMoved(_ touches: Set<UITouch>, with: UIEvent?) {
-        joystick.move(touches: touches)
-        jump.move(touches: touches)
+        switch state {
+        case .playing:
+            joystick.move(touches: touches)
+            jump.move(touches: touches)
+        case .fell, .dead:
+            retry.move(touches: touches)
+        }
     }
     
     final override func touchesEnded(_ touches: Set<UITouch>, with: UIEvent?) {
-        joystick.end(touches: touches)
-        jump.end(touches: touches)
+        switch state {
+        case .playing:
+            joystick.end(touches: touches)
+            jump.end(touches: touches)
+        case .fell, .dead:
+            retry.end(touches: touches)
+        }
     }
 }

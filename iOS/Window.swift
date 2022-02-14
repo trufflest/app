@@ -7,8 +7,9 @@ struct Window: View {
         switch session.state {
         case .home:
             Home(session: session)
-        case let .play(play):
-            Game(scene: play)
+        case let .play(id, play):
+            Game(session: session, scene: .init(fileNamed: play)!)
+                .id(id)
                 .edgesIgnoringSafeArea(.all)
         }
     }

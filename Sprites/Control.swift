@@ -11,7 +11,9 @@ protocol Control: SKSpriteNode {
 }
 
 extension Control {
+    func consume() { }
     func move(touch: UITouch) { }
+    func untouch() { }
     
     func begin(touches: Set<UITouch>) {
         guard touching == nil else { return }
