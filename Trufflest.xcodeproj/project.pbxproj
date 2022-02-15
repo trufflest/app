@@ -11,7 +11,7 @@
 		CE55C33A27B92D8F000626FF /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33927B92D8F000626FF /* Session.swift */; };
 		CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33B27B92DB4000626FF /* Session.State.swift */; };
 		CE6E84E927B7D2B70010A13B /* Master in Frameworks */ = {isa = PBXBuildFile; productRef = CE6E84E827B7D2B70010A13B /* Master */; };
-		CE7696AE27B2A73E000BB220 /* Level1_Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AC27B2A73E000BB220 /* Level1_Tiles.sks */; };
+		CE7696AE27B2A73E000BB220 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AC27B2A73E000BB220 /* Tiles.sks */; };
 		CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AD27B2A73E000BB220 /* Tiles.xcassets */; };
 		CE7696B127B2C046000BB220 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Level1.swift */; };
 		CE7A3D9827B54873000F62AA /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9727B54873000F62AA /* Jump.swift */; };
@@ -33,7 +33,7 @@
 		CE55C33727B92AB1000626FF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CE55C33927B92D8F000626FF /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE55C33B27B92DB4000626FF /* Session.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.State.swift; sourceTree = "<group>"; };
-		CE7696AC27B2A73E000BB220 /* Level1_Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1_Tiles.sks; sourceTree = "<group>"; };
+		CE7696AC27B2A73E000BB220 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		CE7696AD27B2A73E000BB220 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tiles.xcassets; sourceTree = "<group>"; };
 		CE7696B027B2C046000BB220 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		CE7A3D9727B54873000F62AA /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		CE7696AB27B2A713000BB220 /* Tiles */ = {
 			isa = PBXGroup;
 			children = (
-				CE7696AC27B2A73E000BB220 /* Level1_Tiles.sks */,
+				CE7696AC27B2A73E000BB220 /* Tiles.sks */,
 				CE7696AD27B2A73E000BB220 /* Tiles.xcassets */,
 			);
 			path = Tiles;
@@ -208,7 +208,7 @@
 				CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */,
 				CECB6CA827B2C47F00C5EFE5 /* Sprites.xcassets in Resources */,
 				CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */,
-				CE7696AE27B2A73E000BB220 /* Level1_Tiles.sks in Resources */,
+				CE7696AE27B2A73E000BB220 /* Tiles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
