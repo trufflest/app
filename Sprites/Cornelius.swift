@@ -2,7 +2,7 @@ import SpriteKit
 import Master
 
 final class Cornelius: SKSpriteNode {
-    var direction = Direction.right {
+    var direction = Walking.right {
         didSet {
             switch direction {
             case .left:
@@ -11,6 +11,8 @@ final class Cornelius: SKSpriteNode {
             case .right:
                 xScale = 1
                 anchorPoint = .zero
+            default:
+                break
             }
         }
     }

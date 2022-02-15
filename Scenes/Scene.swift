@@ -139,7 +139,7 @@ class Scene: SKScene {
     
     final override func didMove(to: SKView) {
         let horizontal = to.bounds.width / 2
-        let vertical = (to.bounds.height / -2) + 100
+        let vertical = (to.bounds.height / -2) + 105
         
         jump.position = .init(x: horizontal - 30 - 45, y: vertical)
         joystick.position = .init(x: -horizontal + 30 + 80, y: vertical)
