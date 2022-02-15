@@ -7,10 +7,15 @@ struct Home: View {
         VStack {
             Spacer()
             Text("Truffle Forest")
-            Button("Play") {
+            Button {
                 session.play(name: "Level1_Scene")
+            } label: {
+                Text("Play")
+                    .font(.headline)
+                    .frame(width: 120, height: 32)
             }
             .buttonStyle(.borderedProminent)
+            .padding(.top)
             Spacer()
         }
     }

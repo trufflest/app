@@ -45,9 +45,9 @@ class Scene: SKScene {
     }
     
     final override func sceneDidLoad() {
-        retry.position.y = 35
-        exit.position.y = -35
-        resume.position.y = 35
+        retry.position.y = 40
+        exit.position.y = -40
+        resume.position.y = 40
         retry.alpha = 0
         exit.alpha = 0
         resume.alpha = 0
@@ -139,10 +139,10 @@ class Scene: SKScene {
     
     final override func didMove(to: SKView) {
         let horizontal = to.bounds.width / 2
-        let vertical = (to.bounds.height / 2) - 90
+        let vertical = (to.bounds.height / 2) - 100
         
-        jump.position = .init(x: horizontal - 25 - 45, y: vertical)
-        joystick.position = .init(x: -horizontal + 25 + 75, y: vertical)
+        jump.position = .init(x: horizontal - 30 - 45, y: vertical)
+        joystick.position = .init(x: -horizontal + 30 + 80, y: vertical)
         pause.position = .init(x: 0, y: vertical)
         
         camera!.position = .init(x: to.center.x, y: camera!.position.y)
