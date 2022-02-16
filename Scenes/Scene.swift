@@ -142,7 +142,7 @@ class Scene: SKScene {
         let vertical = (to.bounds.height / -2) + 105
         
         jump.position = .init(x: horizontal - 30 - 45, y: vertical)
-        joystick.position = .init(x: -horizontal + 30 + 80, y: vertical)
+        joystick.position = .init(x: -horizontal + 30 + 85, y: vertical)
         pause.position = .init(x: 0, y: vertical)
         
         camera!.position = .init(x: to.center.x, y: camera!.position.y)
