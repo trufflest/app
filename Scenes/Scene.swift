@@ -2,7 +2,7 @@ import SpriteKit
 import Combine
 import Master
 
-private let cooldown = 0.1
+private let cooldown = 0.15
 
 class Scene: SKScene {
     weak var session: Session!
