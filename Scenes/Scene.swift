@@ -2,11 +2,10 @@ import SpriteKit
 import Combine
 import Master
 
-private let cooldown = 0.15
+private let cooldown = 0.05
 
 class Scene: SKScene {
     weak var session: Session!
-    private var time = TimeInterval()
     private var subs = Set<AnyCancellable>()
     private let cornelius = Cornelius()
     private let joystick = Joystick()
@@ -55,7 +54,7 @@ class Scene: SKScene {
         map.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         addChild(cornelius)
         
-        cornelius.position = map[.cornelius]
+        cornelius.position = map.items[.cornelius]!
         
         let camera = SKCameraNode()
         camera.position.y = 224
@@ -97,7 +96,7 @@ class Scene: SKScene {
         map
             .jumping
             .sink { [weak self] in
-                self?.jump.consume(jumping: $0)
+                self?.jump.state = $0
             }
             .store(in: &subs)
         
@@ -154,17 +153,19 @@ class Scene: SKScene {
     }
     
     final override func update(_ currentTime: TimeInterval) {
-        guard
-            state == .playing,
-            currentTime - time > cooldown
-        else { return }
+        guard state == .playing else { return }
         
-        time = currentTime
+        map.gravity(jumping: jump.state, face: cornelius.face)
         
-        map.update(jumping: jump.state,
-                   walking: joystick.state,
-                   face: cornelius.face,
-                   direction: cornelius.direction)
+        if currentTime - joystick.time > cooldown, joystick.state != .none {
+            joystick.time = currentTime
+            map.walk(walking: joystick.state, face: cornelius.face, direction: cornelius.direction)
+        }
+        
+        if currentTime - jump.time > cooldown, jump.active {
+            jump.time = currentTime
+            map.jump(jumping: jump.state, face: cornelius.face)
+        }
         
         joystick.consume()
         jump.consume()

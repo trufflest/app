@@ -3,7 +3,9 @@ import Master
 
 final class Jump: SKSpriteNode, Control {
     weak var touching: UITouch?
-    private(set) var state = Jumping.none
+    var time = TimeInterval()
+    var state = 0
+    private(set) var active = false
     let horizontal = CGFloat(35)
     let vertical = CGFloat(35)
     private let _off = SKTexture(imageNamed: "Jump_off")
@@ -15,21 +17,20 @@ final class Jump: SKSpriteNode, Control {
     }
     
     func consume() {
-        guard state != .none && touching == nil else { return }
-        state = .none
-    }
-    
-    func consume(jumping: Jumping) {
-        state = jumping
+        guard touching == nil else { return }
+        active = false
+        state = 0
     }
     
     func begin(touch: UITouch) {
-        guard state == .none else { return }
-        state = .start
+        active = true
+        state = 0
         run(.setTexture(_on))
     }
     
     func untouch() {
+        active = false
+        state = 0
         run(.setTexture(_off))
     }
 }

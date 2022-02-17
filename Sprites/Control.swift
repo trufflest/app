@@ -1,6 +1,7 @@
 import SpriteKit
 
 protocol Control: SKSpriteNode {
+    var time: TimeInterval { get set }
     var touching: UITouch? { get set }
     var horizontal: CGFloat { get }
     var vertical: CGFloat { get }
@@ -13,6 +14,15 @@ protocol Control: SKSpriteNode {
 }
 
 extension Control {
+    var time: TimeInterval {
+        get {
+            0
+        }
+        set {
+            
+        }
+    }
+    
     func consume() { }
     func move(touch: UITouch) { }
     func untouch() { }
@@ -37,8 +47,7 @@ extension Control {
             if validate(touch: touching) {
                 move(touch: touching)
             } else {
-                self.touching = nil
-                untouch()
+                clear()
             }
         } else {
             begin(touches: touches)
@@ -50,8 +59,7 @@ extension Control {
             let touching = touching,
             touches.contains(touching)
         else { return }
-        self.touching = nil
-        untouch()
+        clear()
     }
     
     private func validate(touch: UITouch) -> Bool {

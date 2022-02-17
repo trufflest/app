@@ -3,6 +3,7 @@ import Master
 
 final class Joystick: SKSpriteNode, Control {
     weak var touching: UITouch?
+    var time = TimeInterval()
     private(set) var state = Walking.none
     let horizontal = CGFloat(75)
     let vertical = CGFloat(35)
@@ -16,7 +17,7 @@ final class Joystick: SKSpriteNode, Control {
     }
     
     func consume() {
-        guard state != .none && touching == nil else { return }
+        guard touching == nil else { return }
         state = .none
     }
     
