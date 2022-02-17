@@ -7,22 +7,20 @@ final class Cornelius: SKSpriteNode {
             switch direction {
             case .left:
                 xScale = -1
-                anchorPoint = .init(x: 1, y: 0)
             case .right:
                 xScale = 1
-                anchorPoint = .zero
             default:
                 break
             }
         }
     }
     
-    var face = Face.walk1 {
+    var face = Face.none {
         didSet {
             switch face {
-            case .walk1:
+            case .walk1_1, .walk1_2:
                 run(.setTexture(_walk1))
-            case .walk2:
+            case .walk2_1, .walk2_2:
                 run(.setTexture(_walk2))
             case .jump:
                 run(.setTexture(_jump))
@@ -44,6 +42,6 @@ final class Cornelius: SKSpriteNode {
     
     init() {
         super.init(texture: _none)
-        anchorPoint = .zero
+        anchorPoint = .init(x: 0.5, y: 0)
     }
 }
