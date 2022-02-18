@@ -11,7 +11,7 @@ class Scene: SKScene {
     private let cornelius = Cornelius()
     private let joystick = Joystick()
     private let jump = Jump()
-    private let map = Map()
+    private let game = Master.Game()
     private let retry = Action(image: "Retry")
     private let exit = Action(image: "Exit")
     private let resume = Action(image: "Resume")
@@ -52,10 +52,10 @@ class Scene: SKScene {
         exit.alpha = 0
         resume.alpha = 0
         
-        map.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
+        game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         addChild(cornelius)
         
-        cornelius.position = map.items[.cornelius]!
+        cornelius.position = game.items[.cornelius]!
         
         let camera = SKCameraNode()
         camera.position.y = 224
@@ -66,42 +66,42 @@ class Scene: SKScene {
         camera.addChild(jump)
         camera.addChild(pause)
         
-        map
+        game
             .moveX
             .sink { [weak self] in
                 self?.cornelius.run(.moveTo(x: $0, duration: cooldown))
             }
             .store(in: &subs)
         
-        map
+        game
             .moveY
             .sink { [weak self] in
                 self?.cornelius.run(.moveTo(y: $0, duration: cooldown))
             }
             .store(in: &subs)
         
-        map
+        game
             .face
             .sink { [weak self] in
                 self?.cornelius.face = $0
             }
             .store(in: &subs)
         
-        map
+        game
             .direction
             .sink { [weak self] in
                 self?.cornelius.direction = $0
             }
             .store(in: &subs)
         
-        map
+        game
             .jumping
             .sink { [weak self] in
                 self?.jump.state = $0
             }
             .store(in: &subs)
         
-        map
+        game
             .state
             .sink { [weak self] in
                 self?.state = $0
@@ -158,17 +158,17 @@ class Scene: SKScene {
         
         if currentTime - time > cooldown {
             time = currentTime
-            map.gravity(jumping: jump.state, walking: joystick.state, face: cornelius.face)
+            game.gravity(jumping: jump.state, walking: joystick.state, face: cornelius.face)
         }
         
         if currentTime - joystick.time > cooldown, joystick.state != .none {
             joystick.time = currentTime
-            map.walk(walking: joystick.state, face: cornelius.face, direction: cornelius.direction)
+            game.walk(walking: joystick.state, face: cornelius.face, direction: cornelius.direction)
         }
         
         if currentTime - jump.time > cooldown, jump.active {
             jump.time = currentTime
-            map.jump(jumping: jump.state, face: cornelius.face)
+            game.jump(jumping: jump.state, face: cornelius.face)
         }
         
         joystick.consume()
