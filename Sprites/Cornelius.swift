@@ -18,9 +18,9 @@ final class Cornelius: SKSpriteNode {
     var face = Face.none {
         didSet {
             switch face {
-            case .walk1_1, .walk1_2:
+            case .walk1:
                 run(.setTexture(_walk1))
-            case .walk2_1, .walk2_2:
+            case .walk2:
                 run(.setTexture(_walk2))
             case .jump:
                 run(.setTexture(_jump))
