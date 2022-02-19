@@ -52,6 +52,7 @@ class Scene: SKScene {
         exit.alpha = 0
         resume.alpha = 0
         
+        game.load(truffles: childNode(withName: "Truffles")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         addChild(cornelius)
         
@@ -69,14 +70,14 @@ class Scene: SKScene {
         game
             .moveX
             .sink { [weak self] in
-                self?.cornelius.run(.moveTo(x: $0, duration: cooldown))
+                self?.cornelius.position.x = $0
             }
             .store(in: &subs)
         
         game
             .moveY
             .sink { [weak self] in
-                self?.cornelius.run(.moveTo(y: $0, duration: cooldown))
+                self?.cornelius.position.y = $0
             }
             .store(in: &subs)
         
@@ -105,6 +106,13 @@ class Scene: SKScene {
             .state
             .sink { [weak self] in
                 self?.state = $0
+            }
+            .store(in: &subs)
+        
+        game
+            .truffle
+            .sink {
+                $0.removeFromParent()
             }
             .store(in: &subs)
         
@@ -158,12 +166,8 @@ class Scene: SKScene {
         
         if currentTime - time > cooldown {
             time = currentTime
+            game.contact()
             game.gravity(jumping: jump.state, walking: joystick.state, face: cornelius.face)
-        }
-        
-        if currentTime - joystick.time > cooldown, joystick.state != .none {
-            joystick.time = currentTime
-            game.walk(walking: joystick.state, face: cornelius.face, direction: cornelius.direction)
         }
         
         if currentTime - jump.time > cooldown, jump.active {
@@ -171,6 +175,11 @@ class Scene: SKScene {
             game.jump(jumping: jump.state, face: cornelius.face)
         }
         
+        if currentTime - joystick.time > cooldown, joystick.state != .none {
+            joystick.time = currentTime
+            game.walk(walking: joystick.state, face: cornelius.face, direction: cornelius.direction)
+        }
+    
         joystick.consume()
         jump.consume()
     }
