@@ -8,6 +8,7 @@ class Scene: SKScene {
     weak var session: Session!
     var title: String { "" }
     private var time = TimeInterval()
+    private var truffles = 0
     private var subs = Set<AnyCancellable>()
     private let cornelius = Cornelius()
     private let joystick = Joystick()
@@ -17,7 +18,9 @@ class Scene: SKScene {
     private let exit = Action(image: "Exit")
     private let resume = Action(image: "Resume")
     private let pause = Pause()
+    private let counter = SKSpriteNode(imageNamed: "Counter")
     private let titleLabel = SKLabelNode()
+    private let counterLabel = SKLabelNode()
     private let shade = SKSpriteNode()
     
     private var state = State.playing {
@@ -78,6 +81,10 @@ class Scene: SKScene {
             .font: UIFont.systemFont(ofSize: 22, weight: .medium),
                 .foregroundColor: UIColor.white])))
         
+        updateCounter()
+        counterLabel.horizontalAlignmentMode = .right
+        counterLabel.verticalAlignmentMode = .center
+        
         shade.color = .init(white: 0, alpha: 0.75)
         shade.alpha = 0
         shade.addChild(titleLabel)
@@ -96,6 +103,8 @@ class Scene: SKScene {
         camera.addChild(joystick)
         camera.addChild(jump)
         camera.addChild(pause)
+        camera.addChild(counter)
+        camera.addChild(counterLabel)
         
         game
             .moveX
@@ -141,8 +150,10 @@ class Scene: SKScene {
         
         game
             .truffle
-            .sink {
+            .sink { [weak self] in
                 $0.removeFromParent()
+                self?.truffles += 1
+                self?.updateCounter()
             }
             .store(in: &subs)
         
@@ -183,6 +194,8 @@ class Scene: SKScene {
         jump.position = .init(x: horizontal - 30 - 45, y: vertical)
         joystick.position = .init(x: -horizontal + 30 + 85, y: vertical)
         pause.position = .init(x: 0, y: vertical)
+        counter.position = .init(x: horizontal - 30 - 10, y: (to.bounds.height / 2) - 85)
+        counterLabel.position = .init(x: counter.position.x - 19, y: counter.position.y)
         
         camera!.position = .init(x: to.center.x, y: camera!.position.y)
         camera!.constraints = [.distance(.init(upperLimit: 150), to: cornelius),
@@ -258,5 +271,11 @@ class Scene: SKScene {
             resume.end(touches: touches)
             exit.end(touches: touches)
         }
+    }
+    
+    private func updateCounter() {
+        counterLabel.attributedText = .init(.init("x\(truffles)", attributes: .init([
+            .font: UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .medium),
+                .foregroundColor: UIColor.white])))
     }
 }
