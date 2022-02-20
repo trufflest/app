@@ -18,31 +18,52 @@ class Scene: SKScene {
     private let resume = Action(image: "Resume")
     private let pause = Pause()
     private let titleLabel = SKLabelNode()
+    private let shade = SKSpriteNode()
     
     private var state = State.playing {
         didSet {
             switch state {
             case .dead:
-                camera!.addChild(retry)
-                camera!.addChild(exit)
-                cornelius.run(.fadeOut(withDuration: 1))
-                retry.run(.fadeIn(withDuration: 1))
-                exit.run(.fadeIn(withDuration: 1))
+                [cornelius, jump, joystick, pause]
+                    .forEach {
+                        $0.run(.fadeOut(withDuration: 1))
+                    }
+                
+                [retry, exit]
+                    .forEach {
+                        shade.addChild($0)
+                    }
+                
+                camera!.addChild(shade)
+                shade.run(.fadeIn(withDuration: 1))
             case .pause:
+                camera!.addChild(shade)
+                shade.run(.fadeIn(withDuration: 0.3))
+                
                 joystick.clear()
                 jump.clear()
                 
-                [resume, exit, titleLabel]
+                [jump, joystick, pause]
                     .forEach {
-                        camera!.addChild($0)
-                        $0.run(.fadeIn(withDuration: 0.3))
+                        $0.run(.fadeOut(withDuration: 1))
+                    }
+                
+                [resume, exit]
+                    .forEach {
+                        shade.addChild($0)
                     }
             case .playing:
-                [resume, exit, titleLabel]
+                [jump, joystick, pause]
                     .forEach {
-                        $0.removeFromParent()
-                        $0.alpha = 0
+                        $0.run(.fadeIn(withDuration: 0.5))
                     }
+                
+                shade.run(.sequence([.fadeOut(withDuration: 0.3), .run { [weak self] in
+                    [self?.resume, self?.exit, self?.shade]
+                        .forEach {
+                            $0?.removeFromParent()
+                        }
+                }]))
             }
         }
     }
@@ -51,14 +72,15 @@ class Scene: SKScene {
         retry.position.y = 40
         exit.position.y = -40
         resume.position.y = 40
+        
         titleLabel.position.y = 110
-        retry.alpha = 0
-        exit.alpha = 0
-        resume.alpha = 0
-        titleLabel.alpha = 0
         titleLabel.attributedText = .init(.init(title, attributes: .init([
             .font: UIFont.systemFont(ofSize: 22, weight: .medium),
                 .foregroundColor: UIColor.white])))
+        
+        shade.color = .init(white: 0, alpha: 0.7)
+        shade.alpha = 0
+        shade.addChild(titleLabel)
         
         game.load(truffles: childNode(withName: "Truffles")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
@@ -154,6 +176,7 @@ class Scene: SKScene {
     }
     
     final override func didMove(to: SKView) {
+        shade.size = to.bounds.size
         let horizontal = to.bounds.width / 2
         let vertical = (to.bounds.height / -2) + 105
         
