@@ -3,8 +3,8 @@ import Combine
 
 final class Action: SKSpriteNode, Control {
     weak var touching: UITouch?
-    let horizontal = CGFloat(80)
-    let vertical = CGFloat(26)
+    let horizontal = CGFloat(72)
+    let vertical = CGFloat(22)
     let activated = PassthroughSubject<Void, Never>()
 
     required init?(coder: NSCoder) { nil }

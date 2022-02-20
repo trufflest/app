@@ -35,7 +35,7 @@ class Scene: SKScene {
                     }
                 
                 camera!.addChild(shade)
-                shade.run(.fadeIn(withDuration: 1))
+                shade.run(.fadeIn(withDuration: 1.5))
             case .pause:
                 camera!.addChild(shade)
                 shade.run(.fadeIn(withDuration: 0.3))
@@ -69,16 +69,16 @@ class Scene: SKScene {
     }
     
     final override func sceneDidLoad() {
-        retry.position.y = 40
-        exit.position.y = -40
-        resume.position.y = 40
+        retry.position.y = 10
+        exit.position.y = -60
+        resume.position.y = 10
         
-        titleLabel.position.y = 110
+        titleLabel.position.y = 65
         titleLabel.attributedText = .init(.init(title, attributes: .init([
             .font: UIFont.systemFont(ofSize: 22, weight: .medium),
                 .foregroundColor: UIColor.white])))
         
-        shade.color = .init(white: 0, alpha: 0.7)
+        shade.color = .init(white: 0, alpha: 0.75)
         shade.alpha = 0
         shade.addChild(titleLabel)
         
