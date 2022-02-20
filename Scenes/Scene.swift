@@ -6,6 +6,7 @@ private let cooldown = 0.02
 
 class Scene: SKScene {
     weak var session: Session!
+    var title: String { "" }
     private var time = TimeInterval()
     private var subs = Set<AnyCancellable>()
     private let cornelius = Cornelius()
@@ -16,6 +17,7 @@ class Scene: SKScene {
     private let exit = Action(image: "Exit")
     private let resume = Action(image: "Resume")
     private let pause = Pause()
+    private let titleLabel = SKLabelNode()
     
     private var state = State.playing {
         didSet {
@@ -30,16 +32,17 @@ class Scene: SKScene {
                 joystick.clear()
                 jump.clear()
                 
-                camera!.addChild(resume)
-                camera!.addChild(exit)
-                resume.run(.fadeIn(withDuration: 0.3))
-                exit.run(.fadeIn(withDuration: 0.3))
+                [resume, exit, titleLabel]
+                    .forEach {
+                        camera!.addChild($0)
+                        $0.run(.fadeIn(withDuration: 0.3))
+                    }
             case .playing:
-                resume.removeFromParent()
-                exit.removeFromParent()
-                resume.alpha = 0
-                exit.alpha = 0
-                break
+                [resume, exit, titleLabel]
+                    .forEach {
+                        $0.removeFromParent()
+                        $0.alpha = 0
+                    }
             }
         }
     }
@@ -48,9 +51,14 @@ class Scene: SKScene {
         retry.position.y = 40
         exit.position.y = -40
         resume.position.y = 40
+        titleLabel.position.y = 110
         retry.alpha = 0
         exit.alpha = 0
         resume.alpha = 0
+        titleLabel.alpha = 0
+        titleLabel.attributedText = .init(.init(title, attributes: .init([
+            .font: UIFont.systemFont(ofSize: 22, weight: .medium),
+                .foregroundColor: UIColor.white])))
         
         game.load(truffles: childNode(withName: "Truffles")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
