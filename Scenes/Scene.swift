@@ -25,6 +25,7 @@ class Scene: SKScene {
     
     private var state = State.playing {
         didSet {
+            guard state != oldValue else { return }
             switch state {
             case .fell:
                 [cornelius, jump, joystick, pause]
@@ -208,7 +209,7 @@ class Scene: SKScene {
         let vertical = (to.bounds.height / -2) + 105
         
         jump.position = .init(x: horizontal - 30 - 45, y: vertical)
-        joystick.position = .init(x: -horizontal + 30 + 85, y: vertical)
+        joystick.position = .init(x: -horizontal + 30 + 95, y: vertical)
         pause.position = .init(x: 0, y: vertical)
         counter.position = .init(x: horizontal - 30 - 10, y: (to.bounds.height / 2) - 85)
         counterLabel.position = .init(x: counter.position.x - 19, y: counter.position.y)
@@ -224,12 +225,6 @@ class Scene: SKScene {
     final override func update(_ currentTime: TimeInterval) {
         guard state == .playing else { return }
         
-        if currentTime - time > cooldown {
-            time = currentTime
-            game.contact()
-            game.gravity(jumping: jump.state, walking: joystick.state, face: cornelius.face)
-        }
-        
         if currentTime - jump.time > cooldown, jump.active {
             jump.time = currentTime
             game.jump(jumping: jump.state, face: cornelius.face)
@@ -242,6 +237,12 @@ class Scene: SKScene {
     
         joystick.consume()
         jump.consume()
+        
+        if currentTime - time > cooldown {
+            time = currentTime
+            game.gravity(jumping: jump.state, walking: joystick.state, face: cornelius.face)
+            game.contact()
+        }
     }
     
     final override func touchesBegan(_ touches: Set<UITouch>, with: UIEvent?) {
