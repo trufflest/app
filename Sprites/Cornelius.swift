@@ -24,6 +24,8 @@ final class Cornelius: SKSpriteNode {
                 run(.setTexture(_walk2))
             case .jump:
                 run(.setTexture(_jump))
+            case .dead:
+                run(.setTexture(_dead))
             case .none:
                 run(.setTexture(_none))
             }
@@ -34,6 +36,7 @@ final class Cornelius: SKSpriteNode {
     private let _walk1 = SKTexture(imageNamed: "Cornelius_walk_1")
     private let _walk2 = SKTexture(imageNamed: "Cornelius_walk_2")
     private let _jump = SKTexture(imageNamed: "Cornelius_jump")
+    private let _dead = SKTexture(imageNamed: "Cornelius_dead")
     
     required init?(coder: NSCoder) { nil }
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {

@@ -26,7 +26,7 @@ class Scene: SKScene {
     private var state = State.playing {
         didSet {
             switch state {
-            case .dead:
+            case .fell:
                 [cornelius, jump, joystick, pause]
                     .forEach {
                         $0.run(.fadeOut(withDuration: 1))
@@ -39,6 +39,21 @@ class Scene: SKScene {
                 
                 camera!.addChild(shade)
                 shade.run(.fadeIn(withDuration: 1.5))
+            case .dead:
+                [cornelius, jump, joystick, pause]
+                    .forEach {
+                        $0.run(.fadeOut(withDuration: 1.5))
+                    }
+                
+                [retry, exit]
+                    .forEach {
+                        shade.addChild($0)
+                    }
+                
+                camera!.addChild(shade)
+                
+                cornelius.run(.moveBy(x: 0, y: 50, duration: 1.5))
+                shade.run(.sequence([.wait(forDuration: 1.5), .fadeIn(withDuration: 0.5)]))
             case .pause:
                 camera!.addChild(shade)
                 shade.run(.fadeIn(withDuration: 0.3))
@@ -90,6 +105,7 @@ class Scene: SKScene {
         shade.addChild(titleLabel)
         
         game.load(truffles: childNode(withName: "Truffles")!)
+        game.load(spikes: childNode(withName: "Spikes")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         addChild(cornelius)
         
@@ -234,7 +250,7 @@ class Scene: SKScene {
             joystick.begin(touches: touches)
             jump.begin(touches: touches)
             pause.begin(touches: touches)
-        case .dead:
+        case .dead, .fell:
             retry.begin(touches: touches)
             exit.begin(touches: touches)
         case .pause:
@@ -249,7 +265,7 @@ class Scene: SKScene {
             joystick.move(touches: touches)
             jump.move(touches: touches)
             pause.move(touches: touches)
-        case .dead:
+        case .dead, .fell:
             retry.move(touches: touches)
             exit.move(touches: touches)
         case .pause:
@@ -264,7 +280,7 @@ class Scene: SKScene {
             joystick.end(touches: touches)
             jump.end(touches: touches)
             pause.end(touches: touches)
-        case .dead:
+        case .dead, .fell:
             retry.end(touches: touches)
             exit.end(touches: touches)
         case .pause:
@@ -274,7 +290,7 @@ class Scene: SKScene {
     }
     
     private func updateCounter() {
-        counterLabel.attributedText = .init(.init("x\(truffles)", attributes: .init([
+        counterLabel.attributedText = .init(.init("×\(truffles)", attributes: .init([
             .font: UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .medium),
                 .foregroundColor: UIColor.white])))
     }
