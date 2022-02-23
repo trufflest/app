@@ -140,14 +140,14 @@ class Scene: SKScene {
         game
             .face
             .sink { [weak self] in
-                self?.cornelius.update(face: $0)
+                self?.cornelius.face = $0
             }
             .store(in: &subs)
         
         game
             .direction
             .sink { [weak self] in
-                self?.cornelius.update(direction: $0)
+                self?.cornelius.direction = $0
             }
             .store(in: &subs)
         

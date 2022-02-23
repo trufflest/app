@@ -1,18 +1,13 @@
-import SpriteKit
+import Foundation
 import Master
 
-final class Cornelius: SKSpriteNode, Character {
-    var direction = Walking.right
-    var face = Face.none
-    let textures = [Face.none.key : SKTexture(imageNamed: "Cornelius_none"),
-                    Face.walk1(0).key : SKTexture(imageNamed: "Cornelius_walk_1"),
-                    Face.walk2(0).key : SKTexture(imageNamed: "Cornelius_walk_2"),
-                    Face.jump.key : SKTexture(imageNamed: "Cornelius_jump"),
-                    Face.dead.key : SKTexture(imageNamed: "Cornelius_dead")]
-    
+final class Cornelius: Character {
     required init?(coder: NSCoder) { nil }
     init() {
-        super.init(texture: textures[Face.none.key], color: .clear, size: textures[Face.none.key]!.size())
-        anchorPoint = .init(x: 0.5, y: 0)
+        super.init(textures: [Face.none.key : .init(imageNamed: "Cornelius_none"),
+                              Face.walk1(0).key : .init(imageNamed: "Cornelius_walk_1"),
+                              Face.walk2(0).key : .init(imageNamed: "Cornelius_walk_2"),
+                              Face.jump.key : .init(imageNamed: "Cornelius_jump"),
+                              Face.dead.key : .init(imageNamed: "Cornelius_dead")])
     }
 }

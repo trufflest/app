@@ -1,32 +1,32 @@
 import SpriteKit
 import Master
 
-protocol Character: SKSpriteNode {
-    var direction: Walking { get set }
-    var face: Face { get set }
-    var textures: [String : SKTexture] { get }
-}
-
-extension Character {
-    init() {
-        super.init(texture: textures[Face.none.key], color: .clear, size: textures[Face.none.key]!.size())
-        anchorPoint = .init(x: 0.5, y: 0)
-    }
-    
-    func update(direction: Walking) {
-        self.direction = direction
-        switch direction {
-        case .left:
-            xScale = -1
-        case .right:
-            xScale = 1
-        default:
-            break
+class Character: SKSpriteNode {
+    var direction = Walking.none {
+        didSet {
+            switch direction {
+            case .left:
+                xScale = -1
+            case .right:
+                xScale = 1
+            default:
+                break
+            }
         }
     }
     
-    func update(face: Face) {
-        self.face = face
-        texture = textures[face.key]
+    var face = Face.none {
+        didSet {
+            texture = textures[face.key]
+        }
+    }
+    
+    private let textures: [String : SKTexture]
+    
+    required init?(coder: NSCoder) { nil }
+    init(textures: [String : SKTexture]) {
+        self.textures = textures
+        super.init(texture: textures[Face.none.key], color: .clear, size: textures[Face.none.key]!.size())
+        anchorPoint = .init(x: 0.5, y: 0)
     }
 }
