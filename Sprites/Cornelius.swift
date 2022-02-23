@@ -1,50 +1,18 @@
 import SpriteKit
 import Master
 
-final class Cornelius: SKSpriteNode {
-    var direction = Walking.right {
-        didSet {
-            switch direction {
-            case .left:
-                xScale = -1
-            case .right:
-                xScale = 1
-            default:
-                break
-            }
-        }
-    }
-    
-    var face = Face.none {
-        didSet {
-            switch face {
-            case .walk1:
-                run(.setTexture(_walk1))
-            case .walk2:
-                run(.setTexture(_walk2))
-            case .jump:
-                run(.setTexture(_jump))
-            case .dead:
-                run(.setTexture(_dead))
-            case .none:
-                run(.setTexture(_none))
-            }
-        }
-    }
-
-    private let _none = SKTexture(imageNamed: "Cornelius_none")
-    private let _walk1 = SKTexture(imageNamed: "Cornelius_walk_1")
-    private let _walk2 = SKTexture(imageNamed: "Cornelius_walk_2")
-    private let _jump = SKTexture(imageNamed: "Cornelius_jump")
-    private let _dead = SKTexture(imageNamed: "Cornelius_dead")
+final class Cornelius: SKSpriteNode, Character {
+    var direction = Walking.right
+    var face = Face.none
+    let textures = [Face.none.key : SKTexture(imageNamed: "Cornelius_none"),
+                    Face.walk1(0).key : SKTexture(imageNamed: "Cornelius_walk_1"),
+                    Face.walk2(0).key : SKTexture(imageNamed: "Cornelius_walk_2"),
+                    Face.jump.key : SKTexture(imageNamed: "Cornelius_jump"),
+                    Face.dead.key : SKTexture(imageNamed: "Cornelius_dead")]
     
     required init?(coder: NSCoder) { nil }
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
-    }
-    
     init() {
-        super.init(texture: _none)
+        super.init(texture: textures[Face.none.key], color: .clear, size: textures[Face.none.key]!.size())
         anchorPoint = .init(x: 0.5, y: 0)
     }
 }
