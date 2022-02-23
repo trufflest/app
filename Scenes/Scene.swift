@@ -7,10 +7,10 @@ private let cooldown = 0.02
 class Scene: SKScene {
     weak var session: Session!
     var title: String { "" }
+    private var cornelius: Cornelius!
     private var time = TimeInterval()
     private var truffles = 0
     private var subs = Set<AnyCancellable>()
-    private let cornelius = Cornelius()
     private let joystick = Joystick()
     private let jump = Jump()
     private let game = Master.Game()
@@ -105,12 +105,10 @@ class Scene: SKScene {
         shade.alpha = 0
         shade.addChild(titleLabel)
         
+        cornelius = childNode(withName: "Cornelius") as? Cornelius
         game.load(truffles: childNode(withName: "Truffles")!)
         game.load(spikes: childNode(withName: "Spikes")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
-        addChild(cornelius)
-        
-        cornelius.position = game.items[.cornelius]!
         
         let camera = SKCameraNode()
         camera.position.y = 224

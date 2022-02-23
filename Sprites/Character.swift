@@ -21,12 +21,7 @@ class Character: SKSpriteNode {
         }
     }
     
-    private let textures: [String : SKTexture]
-    
-    required init?(coder: NSCoder) { nil }
-    init(textures: [String : SKTexture]) {
-        self.textures = textures
-        super.init(texture: textures[Face.none.key], color: .clear, size: textures[Face.none.key]!.size())
-        anchorPoint = .init(x: 0.5, y: 0)
+    var textures: [String : SKTexture] {
+        [:]
     }
 }
