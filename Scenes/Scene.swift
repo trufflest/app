@@ -108,7 +108,10 @@ class Scene: SKScene {
         cornelius = childNode(withName: "Cornelius") as? Cornelius
         game.load(truffles: childNode(withName: "Truffles")!)
         game.load(spikes: childNode(withName: "Spikes")!)
+        game.load(lizards: childNode(withName: "Lizards")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
+        
+        game.add(cornelius: cornelius)
         
         let camera = SKCameraNode()
         camera.position.y = 224
@@ -240,6 +243,8 @@ class Scene: SKScene {
             time = currentTime
             game.gravity(jumping: jump.state, walking: joystick.state, face: cornelius.face)
             game.contact()
+            
+            game.foes()
         }
     }
     
