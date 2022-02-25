@@ -55,6 +55,20 @@ class Scene: SKScene {
                 
                 cornelius.run(.moveBy(x: 0, y: 50, duration: 1.5))
                 shade.run(.sequence([.wait(forDuration: 1.5), .fadeIn(withDuration: 0.5)]))
+            case .finished:
+                [jump, joystick, pause]
+                    .forEach {
+                        $0.run(.fadeOut(withDuration: 1.5))
+                    }
+                
+                [exit]
+                    .forEach {
+                        shade.addChild($0)
+                    }
+                
+                camera!.addChild(shade)
+                
+                shade.run(.sequence([.wait(forDuration: 1.5), .fadeIn(withDuration: 0.5)]))
             case .pause:
                 camera!.addChild(shade)
                 shade.run(.fadeIn(withDuration: 0.3))
@@ -260,6 +274,8 @@ class Scene: SKScene {
         case .pause:
             resume.begin(touches: touches)
             exit.begin(touches: touches)
+        case .finished:
+            break
         }
     }
     
@@ -275,6 +291,8 @@ class Scene: SKScene {
         case .pause:
             resume.move(touches: touches)
             exit.move(touches: touches)
+        case .finished:
+            break
         }
     }
     
@@ -290,6 +308,8 @@ class Scene: SKScene {
         case .pause:
             resume.end(touches: touches)
             exit.end(touches: touches)
+        case .finished:
+            break
         }
     }
     
