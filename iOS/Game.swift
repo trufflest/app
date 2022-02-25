@@ -7,7 +7,7 @@ struct Game: View {
     
     var body: some View {
         SpriteView(scene: scene)
-            .frame(height: 480)
+            .frame(maxHeight: 375)
             .onAppear {
                 scene.session = session
             }

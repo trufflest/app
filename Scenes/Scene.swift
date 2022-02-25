@@ -91,7 +91,7 @@ class Scene: SKScene {
         retry.position.y = 10
         exit.position.y = -60
         resume.position.y = 10
-        
+
         titleLabel.position.y = 65
         titleLabel.attributedText = .init(.init(title, attributes: .init([
             .font: UIFont.systemFont(ofSize: 22, weight: .medium),
@@ -114,7 +114,7 @@ class Scene: SKScene {
         game.add(cornelius: cornelius)
         
         let camera = SKCameraNode()
-        camera.position.y = 224
+        camera.position.y = 187.5
         addChild(camera)
         self.camera = camera
         
@@ -207,12 +207,12 @@ class Scene: SKScene {
     final override func didMove(to: SKView) {
         shade.size = to.bounds.size
         let horizontal = to.bounds.width / 2
-        let vertical = (to.bounds.height / -2) + 105
+        let vertical = (to.bounds.height / -2) + 60
         
         jump.position = .init(x: horizontal - 30 - 45, y: vertical)
         joystick.position = .init(x: -horizontal + 30 + 95, y: vertical)
         pause.position = .init(x: 0, y: vertical)
-        counter.position = .init(x: horizontal - 30 - 10, y: (to.bounds.height / 2) - 85)
+        counter.position = .init(x: horizontal - 30 - 10, y: (to.bounds.height / 2) - 25)
         counterLabel.position = .init(x: counter.position.x - 19, y: counter.position.y)
         
         camera!.position = .init(x: to.center.x, y: camera!.position.y)
