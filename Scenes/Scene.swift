@@ -20,6 +20,9 @@ class Scene: SKScene {
     private let pause = Pause()
     private let counter = SKSpriteNode(imageNamed: "Counter")
     private let titleLabel = SKLabelNode()
+    private let finishLabel = SKLabelNode(attributedText: .init(.init("Finished", attributes: .init([
+        .font: UIFont.systemFont(ofSize: 22, weight: .medium),
+            .foregroundColor: UIColor.white]))))
     private let counterLabel = SKLabelNode()
     private let shade = SKSpriteNode()
     
@@ -61,14 +64,19 @@ class Scene: SKScene {
                         $0.run(.fadeOut(withDuration: 1.5))
                     }
                 
-                [exit]
+                [finishLabel]
                     .forEach {
                         shade.addChild($0)
                     }
                 
                 camera!.addChild(shade)
                 
-                shade.run(.sequence([.wait(forDuration: 1.5), .fadeIn(withDuration: 0.5)]))
+                shade.run(.sequence([.wait(forDuration: 1.5),
+                                     .fadeIn(withDuration: 0.5),
+                                     .wait(forDuration: 1),
+                                     .run { [weak self] in
+                                        self?.session.exit()
+                                    }]))
             case .pause:
                 camera!.addChild(shade)
                 shade.run(.fadeIn(withDuration: 0.3))
