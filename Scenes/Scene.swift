@@ -21,8 +21,8 @@ class Scene: SKScene {
     private let counter = SKSpriteNode(imageNamed: "Counter")
     private let titleLabel = SKLabelNode()
     private let finishLabel = SKLabelNode(attributedText: .init(.init("Finished", attributes: .init([
-        .font: UIFont.systemFont(ofSize: 22, weight: .medium),
-            .foregroundColor: UIColor.white]))))
+        .font: UIFont.systemFont(ofSize: 30, weight: .medium),
+            .foregroundColor: UIColor.blue]))))
     private let counterLabel = SKLabelNode()
     private let shade = SKSpriteNode()
     
