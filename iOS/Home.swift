@@ -1,22 +1,65 @@
 import SwiftUI
+import Master
 
 struct Home: View {
     let session: Session
+    @SwiftUI.State private var model = Archive()
+    @SwiftUI.State private var settings = false
+    @SwiftUI.State private var purchases = false
+    @SwiftUI.State private var restart = false
     
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Truffle Forest")
-            Button {
-                session.play(name: "Level1_Scene")
-            } label: {
-                Text("Play")
+        HStack {
+            VStack {
+                Image("Logo")
+                Text("Truffle Forest")
                     .font(.headline)
-                    .frame(width: 120, height: 32)
+                
+                Text(model.truffles.formatted() + " truffles")
+                    .font(.callout.monospacedDigit())
+                    .foregroundColor(.secondary)
             }
-            .buttonStyle(.borderedProminent)
-            .padding(.top)
-            Spacer()
+            .frame(width: 400)
+            List {
+                Section("Level \((model.level + 1).formatted())") {
+                    Button {
+                        session.play(name: "Level1_Scene")
+                    } label: {
+                        Label("Play", systemImage: "paperplane.fill")
+                    }
+                    Button {
+                        restart = true
+                    } label: {
+                        Label("Restart", systemImage: "flame.fill")
+                    }
+                    .disabled(model.level == 0)
+                    .foregroundColor(model.level > 0 ? .pink : nil)
+                }
+                .headerProminence(.increased)
+                
+                Section {
+                    Button {
+                        settings = true
+                    } label: {
+                        Label("Settings", systemImage: "slider.horizontal.3")
+                    }
+                    .sheet(isPresented: $settings) {
+                        Settings(sounds: model.settings.sounds)
+                    }
+                }
+                
+                Section {
+                    Button {
+                        purchases = true
+                    } label: {
+                        Label("Purchases", systemImage: "cart.fill")
+                    }
+                }
+            }
+            .listStyle(.insetGrouped)
+        }
+        .onReceive(cloud) {
+            model = $0
         }
     }
 }
