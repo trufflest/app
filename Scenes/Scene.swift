@@ -75,7 +75,7 @@ class Scene: SKScene {
                                      .fadeIn(withDuration: 0.5),
                                      .wait(forDuration: 1),
                                      .run { [weak self] in
-                                        self?.session.exit()
+                                        self?.session.levelUp()
                                     }]))
             case .pause:
                 camera!.addChild(shade)

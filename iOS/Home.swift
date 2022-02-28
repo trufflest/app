@@ -23,7 +23,7 @@ struct Home: View {
             List {
                 Section("Level \((model.level + 1).formatted())") {
                     Button {
-                        session.play(name: "Level1_Scene")
+                        session.play(level: model.level)
                     } label: {
                         Label("Play", systemImage: "paperplane.fill")
                     }
@@ -34,6 +34,16 @@ struct Home: View {
                     }
                     .disabled(model.level == 0)
                     .foregroundColor(model.level > 0 ? .pink : nil)
+                    .confirmationDialog("Restart game to the beginning?", isPresented: $restart) {
+                        Button("Cancel", role: .cancel) {
+                            
+                        }
+                        Button("Restart", role: .destructive) {
+                            Task {
+                                await cloud.restart()
+                            }
+                        }
+                    }
                 }
                 .headerProminence(.increased)
                 
