@@ -31,6 +31,8 @@
 		CEB2A3EF27CCF7F60031236C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3EE27CCF7F60031236C /* Transaction.swift */; };
 		CEB2A3F127CCF80B0031236C /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3F027CCF80B0031236C /* Copy.swift */; };
 		CEB2A3F327CD09990031236C /* Store.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3F227CD09990031236C /* Store.Item.swift */; };
+		CEB2A3F527CD1A420031236C /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3F427CD1A420031236C /* UIApplication.swift */; };
+		CEB2A3F727CD1A5F0031236C /* Shop.Why.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3F627CD1A5F0031236C /* Shop.Why.swift */; };
 		CEBA791727C54125000C133B /* Lizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA791627C54125000C133B /* Lizard.swift */; };
 		CEC63CC927B29AA6002CDA09 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CC827B29AA6002CDA09 /* App.swift */; };
 		CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CCA27B29AA6002CDA09 /* Game.swift */; };
@@ -68,6 +70,8 @@
 		CEB2A3EE27CCF7F60031236C /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		CEB2A3F027CCF80B0031236C /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		CEB2A3F227CD09990031236C /* Store.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Item.swift; sourceTree = "<group>"; };
+		CEB2A3F427CD1A420031236C /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		CEB2A3F627CD1A5F0031236C /* Shop.Why.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.Why.swift; sourceTree = "<group>"; };
 		CEBA791627C54125000C133B /* Lizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lizard.swift; sourceTree = "<group>"; };
 		CEC63CC527B29AA6002CDA09 /* Trufflest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trufflest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC63CC827B29AA6002CDA09 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				CE55C33927B92D8F000626FF /* Session.swift */,
 				CEA3C54827CBA8EB004C1E7F /* Settings.swift */,
 				CEB2A3E527CCF22B0031236C /* Shop.swift */,
+				CEB2A3F627CD1A5F0031236C /* Shop.Why.swift */,
+				CEB2A3F427CD1A420031236C /* UIApplication.swift */,
 				CEDC58FE27B29EEB00025163 /* Window.swift */,
 				CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */,
 			);
@@ -272,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB2A3F527CD1A420031236C /* UIApplication.swift in Sources */,
 				CEB2A3E927CCF74C0031236C /* Store.swift in Sources */,
 				CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */,
 				CEB2A3EF27CCF7F60031236C /* Transaction.swift in Sources */,
@@ -284,6 +291,7 @@
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
 				CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
+				CEB2A3F727CD1A5F0031236C /* Shop.Why.swift in Sources */,
 				CEB2A3F127CCF80B0031236C /* Copy.swift in Sources */,
 				CEA3C54127CB97D4004C1E7F /* Global.swift in Sources */,
 				CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */,

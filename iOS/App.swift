@@ -1,4 +1,5 @@
 import SwiftUI
+import Master
 
 @main struct App: SwiftUI.App {
     @Environment(\.scenePhase) private var phase
@@ -13,14 +14,9 @@ import SwiftUI
                         cloud.pull.send()
                     }
                     
-//                    switch Defaults.action {
-//                    case .rate:
-//                        UIApplication.shared.review()
-//                    case .froob:
-//                        froob = true
-//                    case .none:
-//                        break
-//                    }
+                    if Defaults.rate {
+                        UIApplication.shared.review()
+                    }
                     
                     _ = await UNUserNotificationCenter.request()
                 }
