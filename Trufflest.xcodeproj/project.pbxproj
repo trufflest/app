@@ -13,7 +13,7 @@
 		CE6E84E927B7D2B70010A13B /* Master in Frameworks */ = {isa = PBXBuildFile; productRef = CE6E84E827B7D2B70010A13B /* Master */; };
 		CE7696AE27B2A73E000BB220 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AC27B2A73E000BB220 /* Tiles.sks */; };
 		CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AD27B2A73E000BB220 /* Tiles.xcassets */; };
-		CE7696B127B2C046000BB220 /* Level0.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Level0.swift */; };
+		CE7696B127B2C046000BB220 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Level1.swift */; };
 		CE7A3D9827B54873000F62AA /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9727B54873000F62AA /* Jump.swift */; };
 		CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9927B548B2000F62AA /* Control.swift */; };
 		CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9B27B555DD000F62AA /* Scene.swift */; };
@@ -25,6 +25,7 @@
 		CEA3C54727CBA026004C1E7F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA3C54627CBA026004C1E7F /* Media.xcassets */; };
 		CEA3C54927CBA8EB004C1E7F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3C54827CBA8EB004C1E7F /* Settings.swift */; };
 		CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8EA0E27BA80AE00C2540D /* Action.swift */; };
+		CEB2A3E627CCF22B0031236C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3E527CCF22B0031236C /* Store.swift */; };
 		CEBA791727C54125000C133B /* Lizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA791627C54125000C133B /* Lizard.swift */; };
 		CEC63CC927B29AA6002CDA09 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CC827B29AA6002CDA09 /* App.swift */; };
 		CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CCA27B29AA6002CDA09 /* Game.swift */; };
@@ -33,7 +34,7 @@
 		CECB6CA827B2C47F00C5EFE5 /* Sprites.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECB6CA727B2C47F00C5EFE5 /* Sprites.xcassets */; };
 		CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */; };
 		CEDC58FF27B29EEB00025163 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC58FE27B29EEB00025163 /* Window.swift */; };
-		CEDC590227B2A0D200025163 /* Level0_Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEDC590127B2A0D200025163 /* Level0_Scene.sks */; };
+		CEDC590227B2A0D200025163 /* Level1_Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEDC590127B2A0D200025163 /* Level1_Scene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +43,7 @@
 		CE55C33B27B92DB4000626FF /* Session.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.State.swift; sourceTree = "<group>"; };
 		CE7696AC27B2A73E000BB220 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		CE7696AD27B2A73E000BB220 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tiles.xcassets; sourceTree = "<group>"; };
-		CE7696B027B2C046000BB220 /* Level0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level0.swift; sourceTree = "<group>"; };
+		CE7696B027B2C046000BB220 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
 		CE7A3D9727B54873000F62AA /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		CE7A3D9927B548B2000F62AA /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		CE7A3D9B27B555DD000F62AA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -55,6 +56,8 @@
 		CEA3C54627CBA026004C1E7F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEA3C54827CBA8EB004C1E7F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CEA8EA0E27BA80AE00C2540D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		CEB2A3E527CCF22B0031236C /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CEB2A3E727CCF62A0031236C /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CEBA791627C54125000C133B /* Lizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lizard.swift; sourceTree = "<group>"; };
 		CEC63CC527B29AA6002CDA09 /* Trufflest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trufflest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC63CC827B29AA6002CDA09 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -65,7 +68,7 @@
 		CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		CEDC58FD27B29C6E00025163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CEDC58FE27B29EEB00025163 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Window.swift; path = ../../trufflest/iOS/Window.swift; sourceTree = "<group>"; };
-		CEDC590127B2A0D200025163 /* Level0_Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level0_Scene.sks; sourceTree = "<group>"; };
+		CEDC590127B2A0D200025163 /* Level1_Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1_Scene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 		CE339F4427B6BA16003F9F0E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				CEB2A3E727CCF62A0031236C /* Configuration.storekit */,
 				CEA3C54027CB97D4004C1E7F /* Global.swift */,
 				CEA3C54427CB984A004C1E7F /* UNUserNotificationCenter.swift */,
 				CEA3C54627CBA026004C1E7F /* Media.xcassets */,
@@ -141,6 +145,7 @@
 				CE55C33B27B92DB4000626FF /* Session.State.swift */,
 				CE55C33927B92D8F000626FF /* Session.swift */,
 				CEA3C54827CBA8EB004C1E7F /* Settings.swift */,
+				CEB2A3E527CCF22B0031236C /* Store.swift */,
 				CEDC58FE27B29EEB00025163 /* Window.swift */,
 				CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */,
 			);
@@ -165,8 +170,8 @@
 		CEDC590027B2A07500025163 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				CEDC590127B2A0D200025163 /* Level0_Scene.sks */,
-				CE7696B027B2C046000BB220 /* Level0.swift */,
+				CEDC590127B2A0D200025163 /* Level1_Scene.sks */,
+				CE7696B027B2C046000BB220 /* Level1.swift */,
 				CE7A3D9B27B555DD000F62AA /* Scene.swift */,
 			);
 			path = Scenes;
@@ -236,7 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDC590227B2A0D200025163 /* Level0_Scene.sks in Resources */,
+				CEDC590227B2A0D200025163 /* Level1_Scene.sks in Resources */,
 				CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */,
 				CECB6CA827B2C47F00C5EFE5 /* Sprites.xcassets in Resources */,
 				CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */,
@@ -253,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */,
-				CE7696B127B2C046000BB220 /* Level0.swift in Sources */,
+				CE7696B127B2C046000BB220 /* Level1.swift in Sources */,
 				CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */,
 				CE7A3D9827B54873000F62AA /* Jump.swift in Sources */,
 				CE55C33827B92AB1000626FF /* Home.swift in Sources */,
@@ -267,6 +272,7 @@
 				CEA3C54327CB980D004C1E7F /* App.Delegate.swift in Sources */,
 				CE55C33A27B92D8F000626FF /* Session.swift in Sources */,
 				CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */,
+				CEB2A3E627CCF22B0031236C /* Store.swift in Sources */,
 				CEBA791727C54125000C133B /* Lizard.swift in Sources */,
 				CEC63CC927B29AA6002CDA09 /* App.swift in Sources */,
 				CEDC58FF27B29EEB00025163 /* Window.swift in Sources */,

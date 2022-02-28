@@ -1,5 +1,5 @@
 import SpriteKit
 
-final class Level0: Scene {
+final class Level1: Scene {
     override var title: String { "The Meadows" }
 }

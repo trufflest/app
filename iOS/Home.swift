@@ -21,7 +21,7 @@ struct Home: View {
             }
             .frame(width: 400)
             List {
-                Section("Level \((model.level + 1).formatted())") {
+                Section("Level \(model.level.formatted())") {
                     Button {
                         session.play(level: model.level)
                     } label: {
@@ -32,8 +32,8 @@ struct Home: View {
                     } label: {
                         Label("Restart", systemImage: "flame.fill")
                     }
-                    .disabled(model.level == 0)
-                    .foregroundColor(model.level > 0 ? .pink : nil)
+                    .disabled(model.level == 1)
+                    .foregroundColor(model.level > 1 ? .pink : nil)
                     .confirmationDialog("Restart game to the beginning?", isPresented: $restart) {
                         Button("Cancel", role: .cancel) {
                             
