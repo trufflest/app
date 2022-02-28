@@ -2,8 +2,8 @@ import SwiftUI
 import StoreKit
 import Master
 
-struct Store: View {
-    @State private var state = Store.Status.loading
+struct Shop: View {
+    @SwiftUI.State private var state = Store.Status.loading
     
     var body: some View {
         VStack {
@@ -14,11 +14,11 @@ struct Store: View {
                 .foregroundColor(.primary)
                 .frame(maxWidth: .greatestFiniteMagnitude)
             
-            if Defaults.isPremium {
-                isPremium
-            } else {
-                notPremium
-            }
+//            if Defaults.isPremium {
+//                isPremium
+//            } else {
+//                notPremium
+//            }
         }
         .animation(.easeInOut(duration: 0.3), value: state)
         .onReceive(store.status) {

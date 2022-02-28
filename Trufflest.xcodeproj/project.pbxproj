@@ -25,7 +25,12 @@
 		CEA3C54727CBA026004C1E7F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA3C54627CBA026004C1E7F /* Media.xcassets */; };
 		CEA3C54927CBA8EB004C1E7F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3C54827CBA8EB004C1E7F /* Settings.swift */; };
 		CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8EA0E27BA80AE00C2540D /* Action.swift */; };
-		CEB2A3E627CCF22B0031236C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3E527CCF22B0031236C /* Store.swift */; };
+		CEB2A3E627CCF22B0031236C /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3E527CCF22B0031236C /* Shop.swift */; };
+		CEB2A3E927CCF74C0031236C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3E827CCF74C0031236C /* Store.swift */; };
+		CEB2A3EB27CCF7900031236C /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3EA27CCF7900031236C /* Store.State.swift */; };
+		CEB2A3EF27CCF7F60031236C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3EE27CCF7F60031236C /* Transaction.swift */; };
+		CEB2A3F127CCF80B0031236C /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3F027CCF80B0031236C /* Copy.swift */; };
+		CEB2A3F327CD09990031236C /* Store.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2A3F227CD09990031236C /* Store.Item.swift */; };
 		CEBA791727C54125000C133B /* Lizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA791627C54125000C133B /* Lizard.swift */; };
 		CEC63CC927B29AA6002CDA09 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CC827B29AA6002CDA09 /* App.swift */; };
 		CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC63CCA27B29AA6002CDA09 /* Game.swift */; };
@@ -56,8 +61,13 @@
 		CEA3C54627CBA026004C1E7F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CEA3C54827CBA8EB004C1E7F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CEA8EA0E27BA80AE00C2540D /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		CEB2A3E527CCF22B0031236C /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CEB2A3E527CCF22B0031236C /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		CEB2A3E727CCF62A0031236C /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		CEB2A3E827CCF74C0031236C /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		CEB2A3EA27CCF7900031236C /* Store.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
+		CEB2A3EE27CCF7F60031236C /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		CEB2A3F027CCF80B0031236C /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
+		CEB2A3F227CD09990031236C /* Store.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.Item.swift; sourceTree = "<group>"; };
 		CEBA791627C54125000C133B /* Lizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lizard.swift; sourceTree = "<group>"; };
 		CEC63CC527B29AA6002CDA09 /* Trufflest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trufflest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC63CC827B29AA6002CDA09 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -88,7 +98,12 @@
 			isa = PBXGroup;
 			children = (
 				CEB2A3E727CCF62A0031236C /* Configuration.storekit */,
+				CEB2A3F027CCF80B0031236C /* Copy.swift */,
 				CEA3C54027CB97D4004C1E7F /* Global.swift */,
+				CEB2A3F227CD09990031236C /* Store.Item.swift */,
+				CEB2A3EA27CCF7900031236C /* Store.State.swift */,
+				CEB2A3E827CCF74C0031236C /* Store.swift */,
+				CEB2A3EE27CCF7F60031236C /* Transaction.swift */,
 				CEA3C54427CB984A004C1E7F /* UNUserNotificationCenter.swift */,
 				CEA3C54627CBA026004C1E7F /* Media.xcassets */,
 			);
@@ -145,7 +160,7 @@
 				CE55C33B27B92DB4000626FF /* Session.State.swift */,
 				CE55C33927B92D8F000626FF /* Session.swift */,
 				CEA3C54827CBA8EB004C1E7F /* Settings.swift */,
-				CEB2A3E527CCF22B0031236C /* Store.swift */,
+				CEB2A3E527CCF22B0031236C /* Shop.swift */,
 				CEDC58FE27B29EEB00025163 /* Window.swift */,
 				CEC63CCC27B29AA7002CDA09 /* Assets.xcassets */,
 			);
@@ -257,22 +272,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB2A3E927CCF74C0031236C /* Store.swift in Sources */,
 				CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */,
+				CEB2A3EF27CCF7F60031236C /* Transaction.swift in Sources */,
 				CE7696B127B2C046000BB220 /* Level1.swift in Sources */,
 				CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */,
 				CE7A3D9827B54873000F62AA /* Jump.swift in Sources */,
 				CE55C33827B92AB1000626FF /* Home.swift in Sources */,
+				CEB2A3EB27CCF7900031236C /* Store.State.swift in Sources */,
 				CEA3C54527CB984A004C1E7F /* UNUserNotificationCenter.swift in Sources */,
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
 				CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
+				CEB2A3F127CCF80B0031236C /* Copy.swift in Sources */,
 				CEA3C54127CB97D4004C1E7F /* Global.swift in Sources */,
 				CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */,
 				CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */,
+				CEB2A3F327CD09990031236C /* Store.Item.swift in Sources */,
 				CEA3C54327CB980D004C1E7F /* App.Delegate.swift in Sources */,
 				CE55C33A27B92D8F000626FF /* Session.swift in Sources */,
 				CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */,
-				CEB2A3E627CCF22B0031236C /* Store.swift in Sources */,
+				CEB2A3E627CCF22B0031236C /* Shop.swift in Sources */,
 				CEBA791727C54125000C133B /* Lizard.swift in Sources */,
 				CEC63CC927B29AA6002CDA09 /* App.swift in Sources */,
 				CEDC58FF27B29EEB00025163 /* Window.swift in Sources */,

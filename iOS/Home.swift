@@ -27,6 +27,7 @@ struct Home: View {
                     } label: {
                         Label("Play", systemImage: "paperplane.fill")
                     }
+                    
                     Button {
                         restart = true
                     } label: {
@@ -64,6 +65,7 @@ struct Home: View {
                     } label: {
                         Label("Purchases", systemImage: "cart.fill")
                     }
+                    .sheet(isPresented: $purchases, content: Shop.init)
                 }
             }
             .listStyle(.insetGrouped)
