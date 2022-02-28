@@ -12,7 +12,7 @@ struct Shop: View {
                 Section {
                     Text("**Level 1** is free to play\n\(Text("Purchase the next levels to continue playing").foregroundColor(.secondary))")
                         
-                    Text("You only purchase a _Level_ once and you can play it as many times as you want.\nBut you can only play **Level 2** after finishing **Level 1**, and **Level 3** after **Level 2**, and so on.\nYou can always **Restart** the game and play them all again.")
+                    Text(.init(Copy.purchases))
                         .foregroundStyle(.secondary)
                 }
                 .listRowBackground(Color.clear)
@@ -23,6 +23,10 @@ struct Shop: View {
                 Section {
                     NavigationLink("Why do you have to buy each level?", destination: Why.init)
                         .font(.footnote)
+                }
+                
+                Section {
+                    purchases
                 }
             }
             .listStyle(.insetGrouped)
@@ -65,72 +69,53 @@ struct Shop: View {
         Spacer()
     }
     
-    @ViewBuilder private var notPremium: some View {
+    @ViewBuilder private var purchases: some View {
         switch state {
         case .loading:
-            Spacer()
             Image(systemName: "hourglass")
                 .font(.largeTitle.weight(.light))
                 .symbolRenderingMode(.multicolor)
                 .allowsHitTesting(false)
+                .frame(maxWidth: .greatestFiniteMagnitude)
+                .listRowBackground(Color.clear)
         case let .error(error):
-            Spacer()
             Text(verbatim: error)
                 .foregroundColor(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
-                .frame(maxWidth: 240)
+                .padding()
+                .listRowBackground(Color.clear)
         case let .products(products):
-            item(product: products.first!)
+            ForEach(products, content: item(product:))
         }
-        
-        Spacer()
-        
-        Text("Already supporting Moon Health?")
-            .foregroundColor(.secondary)
-            .font(.caption)
-        
-        Button {
-            Task {
-                await store.restore()
-            }
-        } label: {
-            Label("Restore purchases", systemImage: "leaf.arrow.triangle.circlepath")
-                .imageScale(.large)
-                .font(.footnote)
-        }
-        .buttonStyle(.bordered)
-        .tint(.secondary)
-        .padding(.bottom, 40)
     }
     
     @ViewBuilder private func item(product: Product) -> some View {
-        Text(verbatim: product.description)
-            .foregroundColor(.secondary)
-            .font(.callout)
-            .multilineTextAlignment(.center)
-            .fixedSize(horizontal: false, vertical: true)
-            .frame(maxWidth: 190)
-            .allowsHitTesting(false)
-        
-        Spacer()
-        
-        Text(verbatim: product.displayPrice)
-            .font(.body.monospacedDigit())
-            .padding(.top)
-            .frame(maxWidth: .greatestFiniteMagnitude)
-            .allowsHitTesting(false)
-        Button {
-            Task {
-                await store.purchase(product)
-            }
-        } label: {
-            Text("Purchase")
-                .font(.callout)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 3)
+        HStack {
+            Text(verbatim: product.displayName)
+            + Text("\n")
+            + Text(verbatim: product.description)
+                .foregroundColor(.secondary)
+                .font(.footnote)
+            
+            Spacer()
+            
+            Text(verbatim: product.displayPrice)
+                .font(.footnote.monospacedDigit())
                 .allowsHitTesting(false)
+            
+            Button {
+                Task {
+                    await store.purchase(product)
+                }
+            } label: {
+                Text("Purchase")
+                    .font(.footnote.weight(.medium))
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 2)
+            }
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            .padding(.vertical, 6)
         }
-        .buttonStyle(.borderedProminent)
-        .buttonBorderShape(.capsule)
     }
 }

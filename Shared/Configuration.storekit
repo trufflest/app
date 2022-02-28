@@ -10,13 +10,43 @@
       "internalID" : "D1B84E84",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Access Level 2",
+          "displayName" : "Level 2",
           "locale" : "en_US"
         }
       ],
       "productID" : "trufflest.level2",
       "referenceName" : "Level 2",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "03F1F14F",
+      "localizations" : [
+        {
+          "description" : "Access Level 3",
+          "displayName" : "Level 3",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "trufflest.level3",
+      "referenceName" : "Level 3",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "89D3EB33",
+      "localizations" : [
+        {
+          "description" : "Access Level 4",
+          "displayName" : "Level 4",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "trufflest.level4",
+      "referenceName" : "Level 4",
       "type" : "NonConsumable"
     }
   ],
