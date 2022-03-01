@@ -32,6 +32,15 @@ struct Shop: View {
             .listStyle(.insetGrouped)
             .navigationTitle("Purchases")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Restore purchases") {
+                        Task {
+                            await store.restore()
+                        }
+                    }
+                    .foregroundStyle(.secondary)
+                    .font(.callout)
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         dismiss()
@@ -46,27 +55,6 @@ struct Shop: View {
         .task {
             await store.load()
         }
-    }
-    
-    @ViewBuilder private var isPremium: some View {
-        Spacer()
-        
-        Image(systemName: "checkmark.circle.fill")
-            .font(.largeTitle.weight(.light))
-            .symbolRenderingMode(.hierarchical)
-            .foregroundColor(.accentColor)
-            .imageScale(.large)
-            .padding(.bottom)
-        
-        Text("We received your support")
-            .foregroundColor(.secondary)
-            .font(.body)
-        Text("Thank you!")
-            .foregroundColor(.primary)
-            .font(.body)
-            .padding(.top, 1)
-        
-        Spacer()
     }
     
     @ViewBuilder private var purchases: some View {
@@ -99,23 +87,34 @@ struct Shop: View {
             
             Spacer()
             
-            Text(verbatim: product.displayPrice)
-                .font(.footnote.monospacedDigit())
-                .allowsHitTesting(false)
-            
-            Button {
-                Task {
-                    await store.purchase(product)
-                }
-            } label: {
-                Text("Purchase")
+            if let level = Store.Item(id: product.id)?.level,
+               Defaults.has(level: level) {
+                Text("Purchased")
+                    .foregroundColor(.accentColor)
                     .font(.footnote.weight(.medium))
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 2)
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.title.weight(.light))
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundColor(.accentColor)
+            } else {
+                Text(verbatim: product.displayPrice)
+                    .font(.footnote.monospacedDigit())
+                    .allowsHitTesting(false)
+                
+                Button {
+                    Task {
+                        await store.purchase(product)
+                    }
+                } label: {
+                    Text("Purchase")
+                        .font(.footnote.weight(.medium))
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 2)
+                }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .padding(.vertical, 6)
             }
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.capsule)
-            .padding(.vertical, 6)
         }
     }
 }
