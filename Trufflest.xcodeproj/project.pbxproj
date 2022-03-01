@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0A8CEB27CE4D8900714F45 /* Froob.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A8CEA27CE4D8900714F45 /* Froob.swift */; };
+		CE0A8CED27CE521F00714F45 /* Scene.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A8CEC27CE521F00714F45 /* Scene.Item.swift */; };
 		CE55C33827B92AB1000626FF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33727B92AB1000626FF /* Home.swift */; };
 		CE55C33A27B92D8F000626FF /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33927B92D8F000626FF /* Session.swift */; };
 		CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33B27B92DB4000626FF /* Session.State.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		CE0A8CEA27CE4D8900714F45 /* Froob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Froob.swift; sourceTree = "<group>"; };
+		CE0A8CEC27CE521F00714F45 /* Scene.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.Item.swift; sourceTree = "<group>"; };
 		CE55C33727B92AB1000626FF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CE55C33927B92D8F000626FF /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE55C33B27B92DB4000626FF /* Session.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.State.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				CEDC590127B2A0D200025163 /* Level1_Scene.sks */,
 				CE7696B027B2C046000BB220 /* Level1.swift */,
+				CE0A8CEC27CE521F00714F45 /* Scene.Item.swift */,
 				CE7A3D9B27B555DD000F62AA /* Scene.swift */,
 			);
 			path = Scenes;
@@ -285,6 +288,7 @@
 				CEB2A3E927CCF74C0031236C /* Store.swift in Sources */,
 				CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */,
 				CEB2A3EF27CCF7F60031236C /* Transaction.swift in Sources */,
+				CE0A8CED27CE521F00714F45 /* Scene.Item.swift in Sources */,
 				CE7696B127B2C046000BB220 /* Level1.swift in Sources */,
 				CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */,
 				CE7A3D9827B54873000F62AA /* Jump.swift in Sources */,

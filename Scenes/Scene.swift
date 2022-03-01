@@ -6,7 +6,10 @@ private let cooldown = 0.02
 
 class Scene: SKScene {
     weak var session: Session!
+    
     var title: String { "" }
+    var items: [Item] { [] }
+    
     private var cornelius: Cornelius!
     private var time = TimeInterval()
     private var truffles = 0
@@ -129,11 +132,13 @@ class Scene: SKScene {
         
         cornelius = childNode(withName: "Cornelius") as? Cornelius
         game.load(truffles: childNode(withName: "Truffles")!)
-        game.load(spikes: childNode(withName: "Spikes")!)
-        game.load(lizards: childNode(withName: "Lizards")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
-        
         game.add(cornelius: cornelius)
+        
+        items
+            .forEach {
+                game.load(spikes: childNode(withName: "\($0)")!)
+            }
         
         let camera = SKCameraNode()
         camera.position.y = 187.5
