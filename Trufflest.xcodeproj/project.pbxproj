@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0A8CEB27CE4D8900714F45 /* Froob.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A8CEA27CE4D8900714F45 /* Froob.swift */; };
 		CE55C33827B92AB1000626FF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33727B92AB1000626FF /* Home.swift */; };
 		CE55C33A27B92D8F000626FF /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33927B92D8F000626FF /* Session.swift */; };
 		CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33B27B92DB4000626FF /* Session.State.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0A8CEA27CE4D8900714F45 /* Froob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Froob.swift; sourceTree = "<group>"; };
 		CE55C33727B92AB1000626FF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CE55C33927B92D8F000626FF /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE55C33B27B92DB4000626FF /* Session.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.State.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				CEDC58FD27B29C6E00025163 /* Info.plist */,
 				CEA3C54227CB980D004C1E7F /* App.Delegate.swift */,
 				CEC63CC827B29AA6002CDA09 /* App.swift */,
+				CE0A8CEA27CE4D8900714F45 /* Froob.swift */,
 				CEC63CCA27B29AA6002CDA09 /* Game.swift */,
 				CE55C33727B92AB1000626FF /* Home.swift */,
 				CE55C33B27B92DB4000626FF /* Session.State.swift */,
@@ -288,6 +291,7 @@
 				CE55C33827B92AB1000626FF /* Home.swift in Sources */,
 				CEB2A3EB27CCF7900031236C /* Store.State.swift in Sources */,
 				CEA3C54527CB984A004C1E7F /* UNUserNotificationCenter.swift in Sources */,
+				CE0A8CEB27CE4D8900714F45 /* Froob.swift in Sources */,
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
 				CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,

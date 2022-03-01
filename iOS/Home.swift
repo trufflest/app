@@ -7,6 +7,7 @@ struct Home: View {
     @SwiftUI.State private var settings = false
     @SwiftUI.State private var purchases = false
     @SwiftUI.State private var restart = false
+    @SwiftUI.State private var froob = false
     
     var body: some View {
         HStack {
@@ -14,18 +15,24 @@ struct Home: View {
                 Image("Logo")
                 Text("Truffle Forest")
                     .font(.headline)
-                
                 Text(model.truffles.formatted() + " truffles")
                     .font(.callout.monospacedDigit())
                     .foregroundColor(.secondary)
             }
             .frame(width: 400)
             List {
-                Section("Level \(model.level.formatted())") {
+                Section("Level " + model.level.formatted()) {
                     Button {
-                        session.play(level: model.level)
+                        if Defaults.has(level: model.level) {
+                            session.play(level: model.level)
+                        } else {
+                            froob = true
+                        }
                     } label: {
                         Label("Play", systemImage: "paperplane.fill")
+                    }
+                    .sheet(isPresented: $froob) {
+                        Froob(level: model.level)
                     }
                     
                     Button {
