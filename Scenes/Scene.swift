@@ -25,7 +25,7 @@ class Scene: SKScene {
     private let titleLabel = SKLabelNode()
     private let finishLabel = SKLabelNode(attributedText: .init(.init("Finished", attributes: .init([
         .font: UIFont.systemFont(ofSize: 30, weight: .medium),
-            .foregroundColor: UIColor.blue]))))
+            .foregroundColor: UIColor.systemCyan]))))
     private let counterLabel = SKLabelNode()
     private let shade = SKSpriteNode()
     
@@ -137,7 +137,7 @@ class Scene: SKScene {
         
         items
             .forEach {
-                game.load(spikes: childNode(withName: "\($0)")!)
+                $0.load(game: game, scene: self)
             }
         
         let camera = SKCameraNode()
