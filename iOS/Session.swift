@@ -10,9 +10,10 @@ final class Session: ObservableObject {
         }
     }
     
-    func levelUp() {
+    func levelUp(truffles: UInt16) {
         Task {
             await cloud.levelup()
+            await cloud.update(truffles: truffles)
         }
         
         withAnimation(.easeInOut(duration: 1)) {

@@ -12,7 +12,7 @@ class Scene: SKScene {
     
     private var cornelius: Cornelius!
     private var time = TimeInterval()
-    private var truffles = 0
+    private var truffles = UInt16()
     private var subs = Set<AnyCancellable>()
     private let joystick = Joystick()
     private let jump = Jump()
@@ -77,8 +77,8 @@ class Scene: SKScene {
                 shade.run(.sequence([.wait(forDuration: 1.5),
                                      .fadeIn(withDuration: 0.5),
                                      .wait(forDuration: 1),
-                                     .run { [weak self] in
-                                        self?.session.levelUp()
+                                     .run { [weak self, truffles] in
+                                        self?.session.levelUp(truffles: truffles)
                                     }]))
             case .pause:
                 camera!.addChild(shade)
@@ -227,6 +227,13 @@ class Scene: SKScene {
             .pause
             .sink { [weak self] in
                 self?.state = .pause
+            }
+            .store(in: &subs)
+        
+        cloud
+            .first()
+            .sink { [weak self] in
+                self?.truffles = $0.truffles
             }
             .store(in: &subs)
     }
