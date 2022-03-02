@@ -12,6 +12,7 @@
 		CE55C33827B92AB1000626FF /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33727B92AB1000626FF /* Home.swift */; };
 		CE55C33A27B92D8F000626FF /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33927B92D8F000626FF /* Session.swift */; };
 		CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55C33B27B92DB4000626FF /* Session.State.swift */; };
+		CE563E5727CFC84600166C26 /* Limit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE563E5627CFC84600166C26 /* Limit.swift */; };
 		CE6E84E927B7D2B70010A13B /* Master in Frameworks */ = {isa = PBXBuildFile; productRef = CE6E84E827B7D2B70010A13B /* Master */; };
 		CE7696AE27B2A73E000BB220 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AC27B2A73E000BB220 /* Tiles.sks */; };
 		CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AD27B2A73E000BB220 /* Tiles.xcassets */; };
@@ -52,6 +53,7 @@
 		CE55C33727B92AB1000626FF /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CE55C33927B92D8F000626FF /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CE55C33B27B92DB4000626FF /* Session.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.State.swift; sourceTree = "<group>"; };
+		CE563E5627CFC84600166C26 /* Limit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Limit.swift; sourceTree = "<group>"; };
 		CE7696AC27B2A73E000BB220 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		CE7696AD27B2A73E000BB220 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tiles.xcassets; sourceTree = "<group>"; };
 		CE7696B027B2C046000BB220 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				CE0A8CEA27CE4D8900714F45 /* Froob.swift */,
 				CEC63CCA27B29AA6002CDA09 /* Game.swift */,
 				CE55C33727B92AB1000626FF /* Home.swift */,
+				CE563E5627CFC84600166C26 /* Limit.swift */,
 				CE55C33B27B92DB4000626FF /* Session.State.swift */,
 				CE55C33927B92D8F000626FF /* Session.swift */,
 				CEA3C54827CBA8EB004C1E7F /* Settings.swift */,
@@ -303,6 +306,7 @@
 				CEB2A3F127CCF80B0031236C /* Copy.swift in Sources */,
 				CEA3C54127CB97D4004C1E7F /* Global.swift in Sources */,
 				CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */,
+				CE563E5727CFC84600166C26 /* Limit.swift in Sources */,
 				CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */,
 				CEB2A3F327CD09990031236C /* Store.Item.swift in Sources */,
 				CEA3C54327CB980D004C1E7F /* App.Delegate.swift in Sources */,

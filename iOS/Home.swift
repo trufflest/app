@@ -8,6 +8,7 @@ struct Home: View {
     @SwiftUI.State private var purchases = false
     @SwiftUI.State private var restart = false
     @SwiftUI.State private var froob = false
+    @SwiftUI.State private var limit = false
     
     var body: some View {
         HStack {
@@ -23,7 +24,9 @@ struct Home: View {
             List {
                 Section("Level " + model.level.formatted()) {
                     Button {
-                        if Defaults.has(level: model.level) {
+                        if model.level > latestLevel {
+                            limit = true
+                        } else if Defaults.has(level: model.level) {
                             session.play(level: model.level)
                         } else {
                             froob = true
@@ -33,6 +36,9 @@ struct Home: View {
                     }
                     .sheet(isPresented: $froob) {
                         Froob(level: model.level)
+                    }
+                    .sheet(isPresented: $limit) {
+                        Limit(level: model.level)
                     }
                     
                     Button {
