@@ -62,6 +62,8 @@ class Scene: SKScene {
                 cornelius.run(.moveBy(x: 0, y: 50, duration: 1.5))
                 shade.run(.sequence([.wait(forDuration: 1.5), .fadeIn(withDuration: 0.5)]))
             case .finished:
+                session.play(sound: .finished)
+                
                 [jump, joystick, pause]
                     .forEach {
                         $0.run(.fadeOut(withDuration: 1.5))

@@ -38,13 +38,17 @@ final class Session: ObservableObject {
     }
     
     func play(sound: Sound) {
+        Task
+            .detached(priority: .background) { [weak self] in
+                self?.detachedPlay(sound: sound)
+            }
+    }
+    
+    private func detachedPlay(sound: Sound) {
         guard active else { return }
         
-        audios
+        audios = audios
             .filter { !$0.isPlaying }
-            .forEach {
-                audios.remove($0)
-            }
         
         guard
             let file = Bundle.main.url(forResource: sound.rawValue, withExtension: "aiff"),

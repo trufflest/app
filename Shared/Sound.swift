@@ -1,4 +1,5 @@
 enum Sound: String {
     case
-    glass
+    glass,
+    finished
 }
