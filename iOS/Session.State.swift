@@ -4,6 +4,7 @@ extension Session {
     enum State {
         case
         home,
-        play(UUID, String)
+        comic(UInt8),
+        play(UUID, UInt8)
     }
 }

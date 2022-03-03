@@ -24,10 +24,10 @@ struct Home: View {
             List {
                 Section("Level " + model.level.formatted()) {
                     Button {
-                        if model.level > latestLevel {
+                        if model.level > Level.max {
                             limit = true
                         } else if Defaults.has(level: model.level) {
-                            session.play(level: model.level)
+                            session.comic(level: model.level)
                         } else {
                             froob = true
                         }

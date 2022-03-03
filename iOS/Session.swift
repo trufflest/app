@@ -6,9 +6,15 @@ final class Session: ObservableObject {
     @Published private(set) var state = State.home
     private var audios = Set<AVAudioPlayer>()
 
+    func comic(level: UInt8) {
+        withAnimation(.easeInOut(duration: 1)) {
+            state = .comic(level)
+        }
+    }
+    
     func play(level: UInt8) {
         withAnimation(.easeInOut(duration: 1)) {
-            state = .play(.init(), "Level\(level)_Scene")
+            state = .play(.init(), level)
         }
     }
     

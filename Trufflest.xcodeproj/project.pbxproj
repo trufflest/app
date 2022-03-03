@@ -50,6 +50,9 @@
 		CECB6CAA27B2CEF200C5EFE5 /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECB6CA927B2CEF200C5EFE5 /* Joystick.swift */; };
 		CEDC58FF27B29EEB00025163 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC58FE27B29EEB00025163 /* Window.swift */; };
 		CEDC590227B2A0D200025163 /* Level1_Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CEDC590127B2A0D200025163 /* Level1_Scene.sks */; };
+		CEEC849527D12CD200140EEF /* Comic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEEC849427D12CD200140EEF /* Comic.xcassets */; };
+		CEEC849727D12E3200140EEF /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC849627D12E3200140EEF /* Comic.swift */; };
+		CEEC849927D12EBC00140EEF /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEC849827D12EBC00140EEF /* Level.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +102,9 @@
 		CEDC58FD27B29C6E00025163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CEDC58FE27B29EEB00025163 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Window.swift; path = ../../trufflest/iOS/Window.swift; sourceTree = "<group>"; };
 		CEDC590127B2A0D200025163 /* Level1_Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1_Scene.sks; sourceTree = "<group>"; };
+		CEEC849427D12CD200140EEF /* Comic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Comic.xcassets; sourceTree = "<group>"; };
+		CEEC849627D12E3200140EEF /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		CEEC849827D12EBC00140EEF /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +126,14 @@
 				CEB2A3E727CCF62A0031236C /* Configuration.storekit */,
 				CEB2A3F027CCF80B0031236C /* Copy.swift */,
 				CEA3C54027CB97D4004C1E7F /* Global.swift */,
+				CEEC849827D12EBC00140EEF /* Level.swift */,
 				CE74A79227D0CD3200F04E20 /* Sound.swift */,
 				CEB2A3F227CD09990031236C /* Store.Item.swift */,
 				CEB2A3EA27CCF7900031236C /* Store.State.swift */,
 				CEB2A3E827CCF74C0031236C /* Store.swift */,
 				CEB2A3EE27CCF7F60031236C /* Transaction.swift */,
 				CEA3C54427CB984A004C1E7F /* UNUserNotificationCenter.swift */,
+				CEEC849427D12CD200140EEF /* Comic.xcassets */,
 				CEA3C54627CBA026004C1E7F /* Media.xcassets */,
 			);
 			path = Shared;
@@ -188,6 +196,7 @@
 				CEDC58FD27B29C6E00025163 /* Info.plist */,
 				CEA3C54227CB980D004C1E7F /* App.Delegate.swift */,
 				CEC63CC827B29AA6002CDA09 /* App.swift */,
+				CEEC849627D12E3200140EEF /* Comic.swift */,
 				CE0A8CEA27CE4D8900714F45 /* Froob.swift */,
 				CEC63CCA27B29AA6002CDA09 /* Game.swift */,
 				CE55C33727B92AB1000626FF /* Home.swift */,
@@ -294,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEC849527D12CD200140EEF /* Comic.xcassets in Resources */,
 				CE74A79627D0CFF300F04E20 /* glass.aiff in Resources */,
 				CEDC590227B2A0D200025163 /* Level1_Scene.sks in Resources */,
 				CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */,
@@ -326,11 +336,13 @@
 				CEB2A3EB27CCF7900031236C /* Store.State.swift in Sources */,
 				CEA3C54527CB984A004C1E7F /* UNUserNotificationCenter.swift in Sources */,
 				CE0A8CEB27CE4D8900714F45 /* Froob.swift in Sources */,
+				CEEC849927D12EBC00140EEF /* Level.swift in Sources */,
 				CEC63CCB27B29AA6002CDA09 /* Game.swift in Sources */,
 				CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */,
 				CECB6CA627B2C41400C5EFE5 /* Cornelius.swift in Sources */,
 				CEB2A3F727CD1A5F0031236C /* Shop.Why.swift in Sources */,
 				CEB2A3F127CCF80B0031236C /* Copy.swift in Sources */,
+				CEEC849727D12E3200140EEF /* Comic.swift in Sources */,
 				CEA3C54127CB97D4004C1E7F /* Global.swift in Sources */,
 				CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */,
 				CE563E5727CFC84600166C26 /* Limit.swift in Sources */,
