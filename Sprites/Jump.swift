@@ -29,7 +29,7 @@ final class Jump: SKSpriteNode, Control {
     
     func untouch() {
         active = false
-        state = .over
+        state = .ready
         run(.setTexture(_off))
     }
 }

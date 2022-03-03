@@ -17,6 +17,8 @@
 		CE74A79327D0CD3200F04E20 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74A79227D0CD3200F04E20 /* Sound.swift */; };
 		CE74A79627D0CFF300F04E20 /* glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CE74A79527D0CFF300F04E20 /* glass.aiff */; };
 		CE74A79827D0D56400F04E20 /* finished.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CE74A79727D0D56400F04E20 /* finished.aiff */; };
+		CE74A79B27D0F74200F04E20 /* dead.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CE74A79927D0F74200F04E20 /* dead.aiff */; };
+		CE74A79C27D0F74200F04E20 /* jump.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CE74A79A27D0F74200F04E20 /* jump.aiff */; };
 		CE7696AE27B2A73E000BB220 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AC27B2A73E000BB220 /* Tiles.sks */; };
 		CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AD27B2A73E000BB220 /* Tiles.xcassets */; };
 		CE7696B127B2C046000BB220 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Level1.swift */; };
@@ -60,6 +62,8 @@
 		CE74A79227D0CD3200F04E20 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		CE74A79527D0CFF300F04E20 /* glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = glass.aiff; sourceTree = "<group>"; };
 		CE74A79727D0D56400F04E20 /* finished.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = finished.aiff; sourceTree = "<group>"; };
+		CE74A79927D0F74200F04E20 /* dead.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = dead.aiff; sourceTree = "<group>"; };
+		CE74A79A27D0F74200F04E20 /* jump.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = jump.aiff; sourceTree = "<group>"; };
 		CE7696AC27B2A73E000BB220 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		CE7696AD27B2A73E000BB220 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tiles.xcassets; sourceTree = "<group>"; };
 		CE7696B027B2C046000BB220 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
@@ -130,8 +134,10 @@
 		CE74A79427D0CFD800F04E20 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				CE74A79927D0F74200F04E20 /* dead.aiff */,
 				CE74A79727D0D56400F04E20 /* finished.aiff */,
 				CE74A79527D0CFF300F04E20 /* glass.aiff */,
+				CE74A79A27D0F74200F04E20 /* jump.aiff */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -293,8 +299,10 @@
 				CEC63CCD27B29AA7002CDA09 /* Assets.xcassets in Resources */,
 				CE74A79827D0D56400F04E20 /* finished.aiff in Resources */,
 				CECB6CA827B2C47F00C5EFE5 /* Sprites.xcassets in Resources */,
+				CE74A79C27D0F74200F04E20 /* jump.aiff in Resources */,
 				CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */,
 				CEA3C54727CBA026004C1E7F /* Media.xcassets in Resources */,
+				CE74A79B27D0F74200F04E20 /* dead.aiff in Resources */,
 				CE7696AE27B2A73E000BB220 /* Tiles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,6 +34,7 @@ class Scene: SKScene {
             guard state != oldValue else { return }
             switch state {
             case .fell:
+                session.play(sound: .dead)
                 [cornelius, jump, joystick, pause]
                     .forEach {
                         $0.run(.fadeOut(withDuration: 1))
@@ -47,6 +48,7 @@ class Scene: SKScene {
                 camera!.addChild(shade)
                 shade.run(.fadeIn(withDuration: 1.5))
             case .dead:
+                session.play(sound: .dead)
                 [cornelius, jump, joystick, pause]
                     .forEach {
                         $0.run(.fadeOut(withDuration: 1.5))
@@ -185,6 +187,9 @@ class Scene: SKScene {
             .jumping
             .sink { [weak self] in
                 self?.jump.state = $0
+                if $0 == .counter(0) {
+                    self?.session.play(sound: .jump)
+                }
             }
             .store(in: &subs)
         
