@@ -1,4 +1,5 @@
 import SwiftUI
+import AVFoundation
 import Master
 
 @main struct App: SwiftUI.App {
@@ -25,6 +26,8 @@ import Master
             switch $0 {
             case .active:
                 cloud.pull.send()
+                try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try? AVAudioSession.sharedInstance().setActive(true)
             default:
                 break
             }
