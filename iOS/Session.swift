@@ -1,9 +1,11 @@
-import Foundation
 import SwiftUI
+import AVFoundation
 
 final class Session: ObservableObject {
+    var active = true
     @Published private(set) var state = State.home
-    
+    private var audios = Set<AVAudioPlayer>()
+
     func play(level: UInt8) {
         withAnimation(.easeInOut(duration: 1)) {
             state = .play(.init(), "Level\(level)_Scene")
@@ -33,5 +35,23 @@ final class Session: ObservableObject {
         withAnimation(.easeInOut(duration: 0.75)) {
             state = .home
         }
+    }
+    
+    func play(sound: Sound) {
+        guard active else { return }
+        
+        audios
+            .filter { !$0.isPlaying }
+            .forEach {
+                audios.remove($0)
+            }
+        
+        guard
+            let file = Bundle.main.url(forResource: sound.rawValue, withExtension: "aiff"),
+            let audio = try? AVAudioPlayer(contentsOf: file)
+        else { return }
+        
+        audios.insert(audio)
+        audio.play()
     }
 }

@@ -131,9 +131,9 @@ class Scene: SKScene {
         shade.addChild(titleLabel)
         
         cornelius = childNode(withName: "Cornelius") as? Cornelius
-        game.load(truffles: childNode(withName: "Truffles")!)
         game.load(ground: childNode(withName: "Ground") as! SKTileMapNode)
         game.add(cornelius: cornelius)
+        game.load(truffles: childNode(withName: "Truffles")!)
         
         items
             .forEach {
@@ -196,9 +196,17 @@ class Scene: SKScene {
         game
             .truffle
             .sink { [weak self] in
-                $0.removeFromParent()
+                self?.session.play(sound: .glass)
                 self?.truffles += 1
                 self?.updateCounter()
+                
+                $0.run(.sequence([
+                    .group([
+                        .fadeOut(withDuration: 0.3),
+                        .moveBy(x: 0, y: 80, duration: 0.3)]),
+                    .removeFromParent()]))
+                
+                self?.counter.run(.sequence([.scale(by: 2, duration: 0.3), .scale(by: 0.5, duration: 0.2)]))
             }
             .store(in: &subs)
         

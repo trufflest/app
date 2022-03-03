@@ -8,6 +8,9 @@ struct Game: View {
     var body: some View {
         SpriteView(scene: scene)
             .frame(maxHeight: 375)
+            .onReceive(cloud) {
+                session.active = $0.settings.sounds
+            }
             .onAppear {
                 scene.session = session
             }
