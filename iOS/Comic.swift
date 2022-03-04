@@ -8,13 +8,7 @@ struct Comic: View {
     var body: some View {
         ZStack {
             TabView(selection: $selection) {
-                ForEach(Level[level].comics, id: \.self) { index in
-                    VStack {
-                        Image("Comic_\(index)")
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
-                        Spacer()
-                    }
-                }
+                ForEach(Level[level].comics, content: Item.init(comic:))
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             VStack {

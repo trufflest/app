@@ -26,6 +26,8 @@
 		CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9B27B555DD000F62AA /* Scene.swift */; };
 		CE95847D27D21CFC00EDD1E9 /* LevelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95847C27D21CFC00EDD1E9 /* LevelProtocol.swift */; };
 		CE95847F27D21D4D00EDD1E9 /* Level.Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95847E27D21D4D00EDD1E9 /* Level.Level1.swift */; };
+		CE95848127D2229A00EDD1E9 /* Level.Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95848027D2229A00EDD1E9 /* Level.Comic.swift */; };
+		CE95848327D2235100EDD1E9 /* Comic.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95848227D2235100EDD1E9 /* Comic.Item.swift */; };
 		CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9DEFFA27BAC14A0057B39D /* Pause.swift */; };
 		CEA3C53F27CB94BE004C1E7F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA3C53E27CB94BE004C1E7F /* CloudKit.framework */; };
 		CEA3C54127CB97D4004C1E7F /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3C54027CB97D4004C1E7F /* Global.swift */; };
@@ -75,6 +77,8 @@
 		CE7A3D9B27B555DD000F62AA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		CE95847C27D21CFC00EDD1E9 /* LevelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProtocol.swift; sourceTree = "<group>"; };
 		CE95847E27D21D4D00EDD1E9 /* Level.Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.Level1.swift; sourceTree = "<group>"; };
+		CE95848027D2229A00EDD1E9 /* Level.Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.Comic.swift; sourceTree = "<group>"; };
+		CE95848227D2235100EDD1E9 /* Comic.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.Item.swift; sourceTree = "<group>"; };
 		CE9DEFFA27BAC14A0057B39D /* Pause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pause.swift; sourceTree = "<group>"; };
 		CEA3C53C27CB94B6004C1E7F /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		CEA3C53E27CB94BE004C1E7F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -128,6 +132,7 @@
 				CEB2A3E727CCF62A0031236C /* Configuration.storekit */,
 				CEB2A3F027CCF80B0031236C /* Copy.swift */,
 				CEA3C54027CB97D4004C1E7F /* Global.swift */,
+				CE95848027D2229A00EDD1E9 /* Level.Comic.swift */,
 				CE95847E27D21D4D00EDD1E9 /* Level.Level1.swift */,
 				CEEC849827D12EBC00140EEF /* Level.swift */,
 				CE95847C27D21CFC00EDD1E9 /* LevelProtocol.swift */,
@@ -200,6 +205,7 @@
 				CEDC58FD27B29C6E00025163 /* Info.plist */,
 				CEA3C54227CB980D004C1E7F /* App.Delegate.swift */,
 				CEC63CC827B29AA6002CDA09 /* App.swift */,
+				CE95848227D2235100EDD1E9 /* Comic.Item.swift */,
 				CEEC849627D12E3200140EEF /* Comic.swift */,
 				CE0A8CEA27CE4D8900714F45 /* Froob.swift */,
 				CEC63CCA27B29AA6002CDA09 /* Game.swift */,
@@ -346,6 +352,7 @@
 				CEB2A3F727CD1A5F0031236C /* Shop.Why.swift in Sources */,
 				CEB2A3F127CCF80B0031236C /* Copy.swift in Sources */,
 				CEEC849727D12E3200140EEF /* Comic.swift in Sources */,
+				CE95848327D2235100EDD1E9 /* Comic.Item.swift in Sources */,
 				CEA3C54127CB97D4004C1E7F /* Global.swift in Sources */,
 				CE9DEFFB27BAC14A0057B39D /* Pause.swift in Sources */,
 				CE563E5727CFC84600166C26 /* Limit.swift in Sources */,
@@ -359,6 +366,7 @@
 				CEB2A3E627CCF22B0031236C /* Shop.swift in Sources */,
 				CEBA791727C54125000C133B /* Lizard.swift in Sources */,
 				CEC63CC927B29AA6002CDA09 /* App.swift in Sources */,
+				CE95848127D2229A00EDD1E9 /* Level.Comic.swift in Sources */,
 				CEDC58FF27B29EEB00025163 /* Window.swift in Sources */,
 				CEA3C54927CBA8EB004C1E7F /* Settings.swift in Sources */,
 			);
