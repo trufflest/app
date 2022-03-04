@@ -4,10 +4,9 @@ import Master
 
 private let cooldown = 0.02
 
-class Scene: SKScene {
-    var level: UInt8 { 0 }
-    
+final class Scene: SKScene {
     weak var session: Session!
+    private var level: LevelProtocol { Level[userData!["level"] as! UInt8] }
     private var cornelius: Cornelius!
     private var time = TimeInterval()
     private var truffles = UInt16()
@@ -120,7 +119,7 @@ class Scene: SKScene {
         resume.position.y = 10
 
         titleLabel.position.y = 65
-        titleLabel.attributedText = .init(.init(Level[level].title, attributes: .init([
+        titleLabel.attributedText = .init(.init(level.title, attributes: .init([
             .font: UIFont.systemFont(ofSize: 22, weight: .medium),
                 .foregroundColor: UIColor.white])))
         
@@ -137,7 +136,7 @@ class Scene: SKScene {
         game.add(cornelius: cornelius)
         game.load(truffles: childNode(withName: "Truffles")!)
         
-        Level[level].items
+        level.items
             .forEach {
                 $0.load(game: game, scene: self)
             }

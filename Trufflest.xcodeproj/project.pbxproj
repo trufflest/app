@@ -21,7 +21,6 @@
 		CE74A79C27D0F74200F04E20 /* jump.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CE74A79A27D0F74200F04E20 /* jump.aiff */; };
 		CE7696AE27B2A73E000BB220 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AC27B2A73E000BB220 /* Tiles.sks */; };
 		CE7696AF27B2A73E000BB220 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE7696AD27B2A73E000BB220 /* Tiles.xcassets */; };
-		CE7696B127B2C046000BB220 /* Scene.Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7696B027B2C046000BB220 /* Scene.Level1.swift */; };
 		CE7A3D9827B54873000F62AA /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9727B54873000F62AA /* Jump.swift */; };
 		CE7A3D9A27B548B2000F62AA /* Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9927B548B2000F62AA /* Control.swift */; };
 		CE7A3D9C27B555DD000F62AA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A3D9B27B555DD000F62AA /* Scene.swift */; };
@@ -71,7 +70,6 @@
 		CE74A79A27D0F74200F04E20 /* jump.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = jump.aiff; sourceTree = "<group>"; };
 		CE7696AC27B2A73E000BB220 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		CE7696AD27B2A73E000BB220 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tiles.xcassets; sourceTree = "<group>"; };
-		CE7696B027B2C046000BB220 /* Scene.Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.Level1.swift; sourceTree = "<group>"; };
 		CE7A3D9727B54873000F62AA /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		CE7A3D9927B548B2000F62AA /* Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Control.swift; sourceTree = "<group>"; };
 		CE7A3D9B27B555DD000F62AA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			children = (
 				CEDC590127B2A0D200025163 /* Level1.sks */,
 				CE0A8CEC27CE521F00714F45 /* Scene.Item.swift */,
-				CE7696B027B2C046000BB220 /* Scene.Level1.swift */,
 				CE7A3D9B27B555DD000F62AA /* Scene.swift */,
 			);
 			path = Scenes;
@@ -336,7 +333,6 @@
 				CEA8EA0F27BA80AE00C2540D /* Action.swift in Sources */,
 				CEB2A3EF27CCF7F60031236C /* Transaction.swift in Sources */,
 				CE0A8CED27CE521F00714F45 /* Scene.Item.swift in Sources */,
-				CE7696B127B2C046000BB220 /* Scene.Level1.swift in Sources */,
 				CE55C33C27B92DB4000626FF /* Session.State.swift in Sources */,
 				CE7A3D9827B54873000F62AA /* Jump.swift in Sources */,
 				CE55C33827B92AB1000626FF /* Home.swift in Sources */,
