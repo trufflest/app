@@ -1,5 +1,5 @@
 extension Level {
-    struct Comic: Identifiable {
+    struct Comic: Hashable {
         let id: Int
         let text: String
     }

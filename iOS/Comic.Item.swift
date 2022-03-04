@@ -5,9 +5,14 @@ extension Comic {
         let comic: Level.Comic
         
         var body: some View {
-            VStack {
+            VStack(spacing: 0) {
                 Image("Comic_\(comic.id)")
+                    .frame(height: 240)
+                    .padding(.vertical, 20)
                 Text(comic.text)
+                    .font(.callout)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: 350)
                 Spacer()
             }
         }

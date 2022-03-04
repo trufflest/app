@@ -10,7 +10,7 @@ struct Window: View {
         case let .comic(level):
             Comic(session: session, level: level)
         case let .play(id, level):
-            Game(session: session, scene: .init(fileNamed: "Scene.Level\(level)")!)
+            Game(session: session, scene: .init(fileNamed: "Level\(level)")!)
                 .id(id)
                 .edgesIgnoringSafeArea(.all)
         }
