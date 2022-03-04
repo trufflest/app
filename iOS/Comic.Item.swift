@@ -9,10 +9,10 @@ extension Comic {
                 Image("Comic_\(comic.id)")
                     .frame(height: 240)
                     .padding(.vertical, 20)
-                Text(comic.text)
+                Text(.init(comic.text))
                     .font(.callout)
                     .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: 350)
+                    .frame(maxWidth: 480)
                 Spacer()
             }
         }
